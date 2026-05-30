@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harvest Renovation | Texas Home Remodeling & General Contracting</title>
+  <meta name="description" content="Texas-based remodeling and general contracting company specializing in kitchens, bathrooms, flooring, painting, electrical work, drywall, framing, and full home renovations." />
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --bg-soft: #171717;
+      --panel: #1f1f1f;
+      --gold: #d8a85f;
+      --gold-2: #f1c27d;
+      --text: #f4efe7;
+      --muted: #c8bba8;
+      --line: rgba(255,255,255,0.08);
+      --shadow: 0 24px 80px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(216,168,95,0.15), transparent 28%),
+        radial-gradient(circle at right center, rgba(216,168,95,0.08), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid rgba(216,168,95,0.35);
+      border-radius: 999px;
+      color: var(--gold-2);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(216,168,95,0.08);
+      backdrop-filter: blur(10px);
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px; height: 8px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      box-shadow: 0 0 12px rgba(216,168,95,0.6);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(13,13,13,0.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 82px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      padding: 6px;
+    }
+    .brand span {
+      display: block;
+      line-height: 1.05;
+    }
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 12px;
+      margin-top: 4px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      padding: 0;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #1d1306;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(216,168,95,0.28);
+    }
+
+    .hero {
+      padding: 52px 0 34px;
+    }
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .hero-copy, .hero-card {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    }
+    .hero-copy {
+      padding: 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 610px;
+      position: relative;
+    }
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -60px auto;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(216,168,95,0.25), transparent 70%);
+      pointer-events: none;
+    }
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.96;
+      margin: 18px 0 20px;
+      letter-spacing: -0.04em;
+    }
+    .hero-copy p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 58ch;
+      margin: 0 0 28px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #1d1306;
+      box-shadow: 0 14px 34px rgba(216,168,95,0.28);
+    }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.03);
+    }
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      color: var(--gold-2);
+      margin-bottom: 4px;
+    }
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .hero-card {
+      min-height: 610px;
+      position: relative;
+      isolation: isolate;
+    }
+    .hero-card > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.03) contrast(1.03);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13,13,13,0.04) 0%, rgba(13,13,13,0.2) 45%, rgba(13,13,13,0.82) 100%);
+      z-index: 1;
+    }
+    .hero-badge {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      z-index: 2;
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(15,15,15,0.68);
+      backdrop-filter: blur(10px);
+    }
+    .hero-badge h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+    .hero-badge p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    section { padding: 36px 0; }
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 72ch;
+      font-size: 17px;
+    }
+
+    .trust-grid, .services-grid, .process-grid, .value-grid {
+      display: grid;
+      gap: 18px;
+    }
+    .trust-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .pill-card, .service-card, .process-card, .value-card, .quote-card, .contact-card, .gallery-card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+      box-shadow: var(--shadow);
+    }
+    .pill-card {
+      padding: 22px;
+    }
+    .pill-card strong {
+      display: block;
+      color: var(--gold-2);
+      margin-bottom: 6px;
+      font-size: 17px;
+    }
+    .pill-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: center;
+    }
+    .gallery-card {
+      overflow: hidden;
+      min-height: 440px;
+      position: relative;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .story-copy {
+      padding: 34px;
+    }
+    .story-copy .checklist {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .check {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+    .check::before {
+      content: "✓";
+      width: 26px;
+      height: 26px;
+      flex: 0 0 26px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      color: #1d1306;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .service-card {
+      padding: 24px;
+      min-height: 200px;
+    }
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .process-card {
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+    .process-card .number {
+      font-size: 14px;
+      color: var(--gold-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .process-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+    .process-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .value-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .value-card {
+      padding: 26px;
+    }
+    .value-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+    .value-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .quote-card {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      top: -26px;
+      right: 16px;
+      font-size: 160px;
+      color: rgba(216,168,95,0.12);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    blockquote {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      max-width: 24ch;
+    }
+    .quote-card footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 22px;
+    }
+    .contact-card {
+      padding: 30px;
+    }
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .contact-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--gold-2);
+    }
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    label {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+    }
+    input::placeholder, textarea::placeholder { color: #9d907d; }
+    textarea { min-height: 140px; resize: vertical; }
+    .span-2 { grid-column: span 2; }
+    .form-note {
+      margin-top: 12px;
+      color: #aa9d8a;
+      font-size: 13px;
+    }
+
+    .final-cta {
+      padding-bottom: 70px;
+    }
+    .cta-panel {
+      border-radius: 30px;
+      padding: 34px;
+      border: 1px solid rgba(216,168,95,0.26);
+      background: linear-gradient(135deg, rgba(216,168,95,0.14), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    .cta-panel h2 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 44px); }
+    .cta-panel p { margin: 0; color: var(--muted); max-width: 58ch; }
+
+    footer.site-footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-wrap,
+      .story,
+      .contact-wrap { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .services-grid,
+      .process-grid,
+      .value-grid { grid-template-columns: 1fr 1fr; }
+      .hero-copy, .hero-card { min-height: unset; }
+    }
+
+    @media (max-width: 760px) {
+      nav ul { display: none; }
+      .hero-copy { padding: 30px 24px; }
+      .hero-stats,
+      .trust-grid,
+      .services-grid,
+      .process-grid,
+      .value-grid,
+      form { grid-template-columns: 1fr; }
+      .span-2 { grid-column: span 1; }
+      .cta-panel { padding: 26px; }
+      h1 { line-height: 1.02; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Harvest Renovation home">
+        <img src="https://static.wixstatic.com/media/d97af0_58d02b84f0984b95a85805ba1ac1d82e~mv2.png/v1/fill/w_292,h_243,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/image000000_edited.png" alt="Harvest Renovation logo" />
+        <div>
+          <span>Harvest Renovation</span>
+          <small>Texas Remodeling & Contracting</small>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="#contact">Get a Free Quote</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div class="hero-copy">
+          <span class="eyebrow">Quality Craftsmanship • Honest Work • Reliable Service</span>
+          <h1>Transform Your House Into a Home You Love.</h1>
+          <p>
+            Harvest Renovation is a Texas-based remodeling and general contracting company helping homeowners reimagine kitchens, bathrooms, flooring, paint, electrical work, drywall, framing, and full home remodels with care, precision, and integrity.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Start Your Renovation</a>
+            <a class="btn btn-secondary" href="#services">Explore Services</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>Residential</strong><span>Renovations built around your vision and daily life.</span></div>
+            <div class="stat"><strong>Full-Service</strong><span>From planning to punch list, we handle the details.</span></div>
+            <div class="stat"><strong>Texas-Based</strong><span>Local service grounded in trust, communication, and hard work.</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="https://static.wixstatic.com/media/d97af0_007a118858714320853e967179c7a862~mv2.jpg/v1/fill/w_1036,h_703,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/d97af0_007a118858714320853e967179c7a862~mv2.jpg" alt="Warm remodeled kitchen interior" />
+          <div class="hero-overlay"></div>
+          <div class="hero-badge">
+            <h3>Built to look beautiful. Built to last.</h3>
+            <p>Professional renovation solutions designed to add comfort, function, and long-term value to your home.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="trust-grid">
+          <div class="pill-card"><strong>Integrity First</strong><span>Clear communication, honest recommendations, and dependable work from start to finish.</span></div>
+          <div class="pill-card"><strong>Detail-Driven Craft</strong><span>Thoughtful execution across framing, finish work, surfaces, and systems.</span></div>
+          <div class="pill-card"><strong>Family-Focused Spaces</strong><span>Beautiful and functional renovations that make daily living easier and more enjoyable.</span></div>
+          <div class="pill-card"><strong>Long-Term Value</strong><span>Upgrades designed to improve comfort today while strengthening your home’s future value.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us">
+      <div class="container story">
+        <div class="gallery-card">
+          <img src="https://static.wixstatic.com/media/d97af0_4ed4e9465d7e4b9b84c4603fa8243b49~mv2.jpg/v1/fill/w_490,h_814,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/d97af0_4ed4e9465d7e4b9b84c4603fa8243b49~mv2.jpg" alt="Blueprints and renovation planning materials" />
+        </div>
+        <div class="story-copy quote-card">
+          <span class="eyebrow">About Harvest Renovation</span>
+          <blockquote>We help homeowners bring their vision to life with professional renovations grounded in hard work, craftsmanship, and trust.</blockquote>
+          <footer>Family-owned values, clear communication, and quality-focused remodeling for Texas homeowners.</footer>
+          <div class="checklist">
+            <div class="check">General contracting and remodeling support tailored to your goals, timeline, and budget.</div>
+            <div class="check">From kitchens and bathrooms to full-home updates, every detail is approached with care.</div>
+            <div class="check">A process built to feel straightforward, collaborative, and dependable from consultation to completion.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Services</span>
+          <h2>Renovation services designed around how you live.</h2>
+          <p>Whether you need one room updated or a whole-home transformation, Harvest Renovation delivers professional residential work with a strong focus on functionality, finishes, and durable craftsmanship.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><h3>Kitchen Remodeling</h3><p>Upgrade layout, cabinetry, finishes, lighting, and flow to create a kitchen that works beautifully for everyday living and entertaining.</p></article>
+          <article class="service-card"><h3>Bathroom Renovations</h3><p>Refresh bathrooms with cleaner design, improved storage, better fixtures, and a more comfortable day-to-day experience.</p></article>
+          <article class="service-card"><h3>Flooring Installation</h3><p>Install flooring solutions that balance durability, visual warmth, and performance throughout the home.</p></article>
+          <article class="service-card"><h3>Interior Painting</h3><p>Bring new life to your spaces with crisp, professional paintwork that elevates mood, finish quality, and first impressions.</p></article>
+          <article class="service-card"><h3>Electrical & Drywall</h3><p>Support renovation upgrades with dependable electrical improvements and clean drywall work that finishes the space right.</p></article>
+          <article class="service-card"><h3>Framing & Full Remodels</h3><p>Handle structural updates, room reconfiguration, and major renovations with a coordinated contractor-led approach.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How It Works</span>
+          <h2>A simple process built to keep your project moving.</h2>
+          <p>The current Harvest Renovation service flow starts with a consultation, moves through quote and inquiry review, and then into scheduling and execution. This landing page keeps that process clear and conversion-focused.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card"><span class="number">Step 01</span><h3>Book a Consultation</h3><p>Tell us about your home, your goals, and the renovation challenges you want solved.</p></article>
+          <article class="process-card"><span class="number">Step 02</span><h3>Get Your Quote</h3><p>Receive project guidance and a clear next-step conversation based on your renovation needs.</p></article>
+          <article class="process-card"><span class="number">Step 03</span><h3>Build With Confidence</h3><p>Approve the plan, schedule the work, and move into a renovation experience centered on quality and reliability.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why Homeowners Choose Us</span>
+          <h2>Professional renovations with the values people still want in a contractor.</h2>
+        </div>
+        <div class="value-grid">
+          <article class="value-card"><h3>Honest Work</h3><p>Recommendations and project conversations shaped by what best serves the homeowner, not shortcuts or pressure.</p></article>
+          <article class="value-card"><h3>Reliable Service</h3><p>Dependable communication, thoughtful planning, and a practical approach that respects your home and schedule.</p></article>
+          <article class="value-card"><h3>Craftsmanship That Shows</h3><p>Results that feel polished, functional, and built with attention to the details that matter after move-in day.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-wrap">
+        <div class="contact-card">
+          <span class="eyebrow">Free Quote</span>
+          <h2 style="margin:16px 0 8px; font-size: clamp(30px, 4vw, 44px); line-height:1;">Ready to renovate with confidence?</h2>
+          <p style="margin:0; color:var(--muted);">Start with a conversation about your project goals. Harvest Renovation focuses on creating beautiful, functional spaces families love.</p>
+          <div class="contact-list">
+            <div class="contact-item"><strong>Primary Focus</strong><span>Residential remodeling and general contracting</span></div>
+            <div class="contact-item"><strong>Service Categories</strong><span>Kitchens, bathrooms, flooring, painting, electrical, drywall, framing, and full home remodels</span></div>
+            <div class="contact-item"><strong>Response Expectation</strong><span>Current website messaging promises a reply within 24–48 hours.</span></div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <span class="eyebrow">Project Inquiry</span>
+          <form>
+            <label>
+              First Name
+              <input type="text" placeholder="John" />
+            </label>
+            <label>
+              Last Name
+              <input type="text" placeholder="Smith" />
+            </label>
+            <label>
+              Email
+              <input type="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              Phone
+              <input type="tel" placeholder="(555) 555-5555" />
+            </label>
+            <label class="span-2">
+              Project Type
+              <select>
+                <option>Kitchen Remodel</option>
+                <option>Bathroom Remodel</option>
+                <option>Flooring</option>
+                <option>Painting</option>
+                <option>Electrical / Drywall</option>
+                <option>Framing / Full Home Remodel</option>
+              </select>
+            </label>
+            <label class="span-2">
+              Project Details
+              <textarea placeholder="Tell us about the space, goals, timeline, and anything else we should know."></textarea>
+            </label>
+            <div class="span-2">
+              <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#88e1e6eee7c8e0e9fafeedfbfcfaede6e7fee9fce1e7e6a6e6edfcb7fbfdeae2edebfcb5cefaededadbab8d9fde7fcedadbab8daedf9fdedfbfc">Request Your Free Quote</a>
+              <div class="form-note">This landing page is a front-end concept. Connect the form to your preferred CRM, inbox, or website form handler before publishing.</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <h2>Bring your vision to life with Harvest Renovation.</h2>
+            <p>A premium one-page landing page concept built to position your company clearly, showcase services fast, and drive more quote requests.</p>
+          </div>
+          <a class="btn btn-primary" href="#top">Back to Top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© Harvest Renovation — Texas remodeling & general contracting</div>
+      <div>Landing page concept tailored from your current brand direction and service positioning.</div>
+    </div>
+  </footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
