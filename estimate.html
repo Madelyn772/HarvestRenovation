@@ -27,8 +27,8 @@
         </ul>
       </nav>
       <div class="top-actions">
-        <a class="top-phone" href="tel:+18329440267">Call (832) 944-0267</a>
-        <a class="nav-cta" href="estimate.html">Request Estimate</a>
+        <a class="top-phone" href="tel:+18329440267">Call Now</a>
+        <a class="nav-cta" href="#project-request-form">Request Estimate</a>
       </div>
     </div>
   </header>
@@ -74,7 +74,7 @@
   </div>
 </section>
 
-<section>
+<section id="project-request-form">
   <div class="container grid-2">
     <div class="panel card">
       <span class="eyebrow">What to expect</span>
@@ -164,5 +164,60 @@
       <div><a href="https://www.harvestrenovation.net/">Current website</a> • <a href="https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0">Google Maps listing</a></div>
     </div>
   </footer>
+  <script>
+    (function () {
+      function scrollToHash(hash, updateHistory) {
+        if (!hash || hash.charAt(0) !== '#') return;
+
+        var id = decodeURIComponent(hash.slice(1));
+        var target = document.getElementById(id);
+        if (!target) return;
+
+        var header = document.querySelector('header');
+        var headerHeight = header ? header.getBoundingClientRect().height : 0;
+        var top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+
+        window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+
+        if (updateHistory) {
+          history.replaceState(null, '', '#' + id);
+        }
+      }
+
+      document.addEventListener('click', function (event) {
+        var link = event.target.closest('a[href*="#"]');
+        if (!link) return;
+
+        var href = link.getAttribute('href');
+        if (!href) return;
+
+        var hashIndex = href.indexOf('#');
+        if (hashIndex < 0) return;
+
+        var path = href.slice(0, hashIndex);
+        var hash = href.slice(hashIndex);
+
+        if (path && path !== 'estimate.html') return;
+
+        event.preventDefault();
+        scrollToHash(hash, true);
+      });
+
+      function scrollFromCurrentHash() {
+        if (!window.location.hash) return;
+        scrollToHash(window.location.hash, false);
+      }
+
+      window.addEventListener('load', function () {
+        // Run once immediately and once after paint to handle late layout shifts.
+        scrollFromCurrentHash();
+        setTimeout(scrollFromCurrentHash, 120);
+      });
+
+      window.addEventListener('hashchange', function () {
+        scrollFromCurrentHash();
+      });
+    })();
+  </script>
 </body>
 </html>

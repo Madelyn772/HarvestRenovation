@@ -29,24 +29,24 @@
       </a>
       <nav>
         <ul>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#reviews">Reviews</a></li>
-          <li><a href="index.html#process">Process</a></li>
-          <li><a href="index.html#images">Images</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#images">Images</a></li>
           <li><a href="estimate.html">Estimate</a></li>
         </ul>
       </nav>
       <div class="top-actions">
-        <a class="top-phone" href="tel:+18329440267">Call (832) 944-0267</a>
-        <a class="nav-cta" href="estimate.html">Request Estimate</a>
+        <a class="top-phone" href="tel:+18329440267">Call Now</a>
+        <a class="nav-cta" href="estimate.html#project-request-form">Request Estimate</a>
       </div>
     </div>
   </header>
   <div class="mobile-quick-nav" aria-label="Quick navigation">
-    <a href="index.html#services">Services</a>
-    <a href="index.html#images">Images</a>
-    <a href="index.html#reviews">Reviews</a>
-    <a href="index.html#process">Process</a>
+    <a href="#services">Services</a>
+    <a href="#images">Images</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#process">Process</a>
     <a href="estimate.html">Estimate</a>
   </div>
   <main>
@@ -58,7 +58,7 @@
       <h1>Houston Remodeling Contractor for Kitchens, Bathrooms, Flooring & Full Home Renovations</h1>
       <p class="lead">Harvest Renovation helps homeowners across Houston, South Houston, and nearby communities improve the spaces they use every day with quality craftsmanship, clear communication, and dependable service from estimate to final walkthrough.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="estimate.html">Request a Free Estimate</a>
+        <a class="btn btn-primary" href="estimate.html#project-request-form">Request a Free Estimate</a>
         <a class="btn btn-secondary" href="tel:+18329440267">Call Now for Fastest Response</a>
       </div>
       <div class="hero-proof">
@@ -112,7 +112,7 @@
         <div class="item">Strong review themes around professionalism, value, and repeat-project trust.</div>
       </div>
       <div class="hero-actions" style="margin-top:20px;">
-        <a class="btn btn-primary" href="estimate.html">Request a Free Estimate</a>
+        <a class="btn btn-primary" href="estimate.html#project-request-form">Request a Free Estimate</a>
         <a class="btn btn-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0">View Google Reviews</a>
       </div>
     </div>
@@ -147,7 +147,7 @@
       <a class="card" href="flooring-installation.html"><h3>Flooring Installation</h3><p>Upgrade worn floors with durable materials, cleaner transitions, and a more cohesive look throughout the home.</p></a>
       <a class="card" href="interior-painting.html"><h3>Interior Painting</h3><p>Brighten and refresh your home with clean, professional paintwork for walls, ceilings, trim, and more.</p></a>
       <a class="card" href="full-home-renovation.html"><h3>Full Home Renovation</h3><p>Take on larger updates with a contractor-led approach that keeps your project organized from room to room.</p></a>
-      <a class="card" href="estimate.html"><h3>Request an Estimate</h3><p>Tell us about your project, your timeline, and your goals. Call now for fastest response or submit online for a reply within 1 business day.</p></a>
+      <a class="card" href="estimate.html#project-request-form"><h3>Request an Estimate</h3><p>Tell us about your project, your timeline, and your goals. Call now for fastest response or submit online for a reply within 1 business day.</p></a>
     </div>
   </div>
 </section>
@@ -212,7 +212,7 @@
     </div>
     <div class="hero-actions" style="margin-top:18px;">
       <a class="btn btn-primary" href="tel:+18329440267">Call (832) 944-0267</a>
-      <a class="btn btn-secondary" href="estimate.html">Request Estimate</a>
+      <a class="btn btn-secondary" href="estimate.html#project-request-form">Request Estimate</a>
     </div>
   </div>
 </section>
@@ -224,5 +224,41 @@
       <div><a href="https://www.harvestrenovation.net/">Current website</a> • <a href="https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0">Google Maps listing</a></div>
     </div>
   </footer>
+  <script>
+    (function () {
+      function scrollToHash(hash, updateHistory) {
+        var id = decodeURIComponent(hash.replace('#', ''));
+        var target = document.getElementById(id);
+        if (!target) return;
+
+        var header = document.querySelector('header');
+        var headerHeight = header ? header.getBoundingClientRect().height : 0;
+        var top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+
+        window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+
+        if (updateHistory) {
+          history.replaceState(null, '', '#' + id);
+        }
+      }
+
+      document.addEventListener('click', function (event) {
+        var link = event.target.closest('a[href^="#"]');
+        if (!link) return;
+
+        var hash = link.getAttribute('href');
+        if (!hash || hash.length < 2) return;
+
+        event.preventDefault();
+        scrollToHash(hash, true);
+      });
+
+      if (window.location.hash) {
+        window.addEventListener('load', function () {
+          scrollToHash(window.location.hash, false);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
