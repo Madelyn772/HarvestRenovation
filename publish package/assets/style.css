@@ -165,7 +165,29 @@ footer.site-footer { border-top:1px solid var(--line); padding:22px 0 40px; colo
   .hero-media { min-height: 480px; }
 }
 @media (max-width: 760px) {
-  nav ul { display:none; }
+  .nav { flex-wrap: wrap; row-gap: 10px; padding: 10px 0 14px; }
+  .brand { width: 100%; }
+  nav { width: 100%; order: 3; }
+  nav ul {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  nav li { flex: 0 0 auto; }
+  nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    white-space: nowrap;
+  }
+  .top-actions { width: 100%; order: 2; justify-content: flex-start; }
+  .top-phone, .nav-cta { padding: 10px 12px; }
   .hero-copy { padding:30px 24px; }
   .grid-4, .grid-3, .service-grid, .testimonial-grid, .faq-grid, .metrics, .hero-proof, form { grid-template-columns: 1fr; }
   .span-2 { grid-column: span 1; }
