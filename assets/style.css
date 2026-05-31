@@ -218,7 +218,7 @@ footer.site-footer { border-top:1px solid var(--line); padding:22px 0 40px; colo
   .hero-media { min-height: 480px; }
 }
 @media (max-width: 760px) {
-  :root { --anchor-offset: 188px; }
+  :root { --anchor-offset: 156px; }
   .nav {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -229,29 +229,28 @@ footer.site-footer { border-top:1px solid var(--line); padding:22px 0 40px; colo
   }
   .brand { min-width: 0; }
   .brand img { width: 42px; height: 42px; border-radius: 10px; }
-  .brand > div > div { font-size: 16px; }
+  .brand > div > div { font-size: 14px; white-space: nowrap; }
   .brand small { display: none; }
   nav { display: none; }
   .top-actions {
-    width: 100%;
-    grid-column: 1 / -1;
-    order: 3;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 2px 0 0;
+    width: auto;
+    order: 2;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 6px;
+    margin: 0;
   }
   .top-phone,
   .nav-cta {
     display: inline-flex;
-    min-height: 38px;
-    padding: 8px 12px;
-    font-size: 13px;
+    min-height: 34px;
+    padding: 7px 10px;
+    font-size: 12px;
   }
   body { padding-bottom: 0; }
   .mobile-quick-nav {
     position: sticky;
-    top: 108px;
+    top: 78px;
     z-index: 18;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
