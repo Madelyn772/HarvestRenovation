@@ -238,8 +238,8 @@ footer.site-footer { border-top:1px solid var(--line); padding:22px 0 40px; colo
     justify-content: flex-end;
     flex-wrap: nowrap;
     gap: 6px;
-    margin: 0 0 0 18px;
-    transform: translateX(14px);
+    margin: 0 0 0 14px;
+    transform: translateX(8px);
   }
   .top-phone,
   .nav-cta {
