@@ -227,7 +227,7 @@ footer.site-footer { border-top:1px solid var(--line); padding:22px 0 40px; colo
     min-height: auto;
     padding: 10px 0;
   }
-  .brand { min-width: 0; }
+  .brand { min-width: 0; max-width: calc(100% - 168px); }
   .brand img { width: 42px; height: 42px; border-radius: 10px; }
   .brand > div > div { font-size: 14px; white-space: nowrap; }
   .brand small { display: none; }
@@ -238,7 +238,7 @@ footer.site-footer { border-top:1px solid var(--line); padding:22px 0 40px; colo
     justify-content: flex-end;
     flex-wrap: nowrap;
     gap: 6px;
-    margin: 0;
+    margin: 0 0 0 10px;
   }
   .top-phone,
   .nav-cta {
