@@ -7,7 +7,7 @@
   <meta name="description" content="Request a free remodeling estimate from Harvest Renovation. Call now for fastest response or expect a reply within 1 business day." />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body>
+<body class="page-estimate">
   <header>
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="Harvest Renovation home">
@@ -89,10 +89,10 @@
     <div class="panel card">
       <span class="eyebrow">Project Request Form</span>
       <form>
-        <label>First Name<input type="text" placeholder="John" /></label>
-        <label>Last Name<input type="text" placeholder="Smith" /></label>
-        <label>Email<input type="email" placeholder="you@example.com" /></label>
-        <label>Phone<input type="tel" placeholder="(832) 555-5555" /></label>
+        <label>First Name<input type="text" placeholder="John" required /></label>
+        <label>Last Name<input type="text" placeholder="Smith" required /></label>
+        <label>Email<input type="email" placeholder="you@example.com" required /></label>
+        <label>Phone<input type="tel" placeholder="(832) 555-5555" required /></label>
         <label class="span-2">Project Type
           <select>
             <option>Kitchen Remodeling</option>
@@ -107,13 +107,6 @@
           </select>
         </label>
         <label>Property ZIP Code<input type="text" placeholder="77587" /></label>
-        <label>Preferred Contact Method
-          <select>
-            <option>Phone Call</option>
-            <option>Email</option>
-            <option>Either</option>
-          </select>
-        </label>
         <label>Budget Range
           <select>
             <option>Under $5,000</option>
@@ -133,6 +126,19 @@
             <option>Just researching</option>
           </select>
         </label>
+        <label>How Did You Hear About Us?
+          <select id="heard-about-source">
+            <option value="" selected>Select an option</option>
+            <option value="Google Search">Google Search</option>
+            <option value="Google Maps">Google Maps</option>
+            <option value="Referral">Referral</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Truck or Yard Sign">Truck or Yard Sign</option>
+            <option value="Repeat Customer">Repeat Customer</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <label id="heard-about-other-row" class="span-2" style="display:none;">If Other -<input id="heard-about-other" type="text" placeholder="Tell us where you heard about us" disabled /></label>
         <label class="span-2">Project Details<textarea placeholder="Tell us about the room, the work you want done, and anything important we should know."></textarea></label>
         <div class="span-2">
           <a class="btn btn-primary" href="tel:+18329440267">Request My Free Estimate</a>
@@ -160,7 +166,7 @@
   </main>
   <footer class="site-footer">
     <div class="container footer-row">
-      <div>© Harvest Renovation • Houston remodeling & general contracting</div>
+      <div>© Harvest Renovation • Houston Remodeling & General Contracting</div>
       <div><a href="https://www.harvestrenovation.net/">Current website</a> • <a href="https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0">Google Maps listing</a></div>
     </div>
   </footer>
@@ -217,6 +223,28 @@
       window.addEventListener('hashchange', function () {
         scrollFromCurrentHash();
       });
+
+      var heardAboutSource = document.getElementById('heard-about-source');
+      var heardAboutOtherRow = document.getElementById('heard-about-other-row');
+      var heardAboutOther = document.getElementById('heard-about-other');
+
+      function toggleHeardAboutOther() {
+        if (!heardAboutSource || !heardAboutOtherRow || !heardAboutOther) return;
+
+        var showOther = heardAboutSource.value === 'Other';
+        heardAboutOtherRow.style.display = showOther ? 'grid' : 'none';
+        heardAboutOther.disabled = !showOther;
+
+        if (!showOther) {
+          heardAboutOther.value = '';
+        }
+      }
+
+      if (heardAboutSource) {
+        heardAboutSource.addEventListener('change', toggleHeardAboutOther);
+        toggleHeardAboutOther();
+      }
+
     })();
   </script>
 </body>
