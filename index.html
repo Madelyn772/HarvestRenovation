@@ -226,14 +226,31 @@
   </footer>
   <script>
     (function () {
+      function getStickyOffset() {
+        var offset = 16;
+        var header = document.querySelector('header');
+        var quickNav = document.querySelector('.mobile-quick-nav');
+
+        if (header) {
+          offset += header.getBoundingClientRect().height;
+        }
+
+        if (quickNav) {
+          var quickNavStyles = window.getComputedStyle(quickNav);
+          if (quickNavStyles.display !== 'none') {
+            offset += quickNav.getBoundingClientRect().height + 8;
+          }
+        }
+
+        return offset;
+      }
+
       function scrollToHash(hash, updateHistory) {
         var id = decodeURIComponent(hash.replace('#', ''));
         var target = document.getElementById(id);
         if (!target) return;
 
-        var header = document.querySelector('header');
-        var headerHeight = header ? header.getBoundingClientRect().height : 0;
-        var top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+        var top = target.getBoundingClientRect().top + window.scrollY - getStickyOffset();
 
         window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
 
