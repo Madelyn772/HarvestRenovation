@@ -88,13 +88,16 @@
     </div>
     <div class="panel card">
       <span class="eyebrow">Project Request Form</span>
-      <form>
-        <label>First Name<input type="text" placeholder="John" required /></label>
-        <label>Last Name<input type="text" placeholder="Smith" required /></label>
-        <label>Email<input type="email" placeholder="you@example.com" required /></label>
-        <label>Phone<input type="tel" placeholder="(832) 555-5555" required /></label>
+      <form id="estimate-request-form" action="https://formsubmit.co/ajax/harvestrenovation@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Estimate Request - Harvest Renovation" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <label>First Name<input type="text" name="first_name" placeholder="John" required /></label>
+        <label>Last Name<input type="text" name="last_name" placeholder="Smith" required /></label>
+        <label>Email<input type="email" name="email" placeholder="you@example.com" required /></label>
+        <label>Phone<input type="tel" name="phone" placeholder="(832) 555-5555" required /></label>
         <label class="span-2">Project Type
-          <select>
+          <select id="project-type-source" name="project_type">
             <option>Kitchen Remodeling</option>
             <option>Bathroom Remodeling</option>
             <option>Whole Home Renovation</option>
@@ -106,9 +109,10 @@
             <option>Other</option>
           </select>
         </label>
-        <label>Property ZIP Code<input type="text" placeholder="77587" /></label>
+        <label id="project-type-other-row" class="span-2" style="display:none;">If Other<input id="project-type-other" name="project_type_other" type="text" placeholder="Tell us your project type" disabled /></label>
+        <label>Property ZIP Code<input type="text" name="property_zip" placeholder="77587" inputmode="numeric" pattern="[0-9]{5}" title="Please enter a 5-digit ZIP code" required /></label>
         <label>Budget Range
-          <select>
+          <select name="budget_range">
             <option>Under $5,000</option>
             <option>$5,000 - $10,000</option>
             <option>$10,000 - $25,000</option>
@@ -119,7 +123,7 @@
           </select>
         </label>
         <label>Timeline
-          <select>
+          <select name="timeline">
             <option>ASAP</option>
             <option>Within 30 days</option>
             <option>1–3 months</option>
@@ -127,7 +131,7 @@
           </select>
         </label>
         <label>How Did You Hear About Us?
-          <select id="heard-about-source">
+          <select id="heard-about-source" name="heard_about_source">
             <option value="" selected>Select an option</option>
             <option value="Google Search">Google Search</option>
             <option value="Google Maps">Google Maps</option>
@@ -138,10 +142,12 @@
             <option value="Other">Other</option>
           </select>
         </label>
-        <label id="heard-about-other-row" class="span-2" style="display:none;">If Other<input id="heard-about-other" type="text" placeholder="Tell us where you heard about us" disabled /></label>
-        <label class="span-2">Project Details<textarea placeholder="Tell us about the room, the work you want done, and anything important we should know."></textarea></label>
+        <label id="heard-about-other-row" class="span-2" style="display:none;">If Other<input id="heard-about-other" name="heard_about_other" type="text" placeholder="Tell us where you heard about us" disabled /></label>
+        <label class="span-2">Project Details<textarea name="project_details" placeholder="Tell us about the room, the work you want done, and anything important we should know."></textarea></label>
         <div class="span-2">
-          <a class="btn btn-primary" href="tel:+18329440267">Request My Free Estimate</a>
+          <button id="estimate-submit-btn" class="btn btn-primary" type="submit">Send Estimate Request</button>
+          <a class="btn btn-secondary" href="tel:+18329440267">Or Call Now</a>
+          <div id="estimate-form-status" class="help" aria-live="polite"></div>
           <div class="help">Call now for fastest response. Online requests receive a reply within 1 business day.</div>
         </div>
       </form>
@@ -167,7 +173,7 @@
   <footer class="site-footer">
     <div class="container footer-row">
       <div>© Harvest Renovation • Houston Remodeling & General Contracting</div>
-      <div><a href="https://www.harvestrenovation.net/">Current website</a> • <a href="https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0">Google Maps listing</a></div>
+      <div><a href="https://www.facebook.com/profile.php?id=61551641154186">Facebook (Harvest Renovation)</a> • <a href="https://www.facebook.com/profile.php?id=61575091419939">Facebook (Harvest Electrical Solutions)</a> • <a href="https://www.instagram.com/harvestrenovation/">Instagram (Harvest Renovation)</a> • <a href="https://www.instagram.com/harvestelectricsolutions/">Instagram (Harvest Electrical Solutions)</a> • <a href="https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0">Google Reviews</a></div>
     </div>
   </footer>
   <script>
@@ -243,6 +249,39 @@
       if (heardAboutSource) {
         heardAboutSource.addEventListener('change', toggleHeardAboutOther);
         toggleHeardAboutOther();
+      }
+
+      var estimateForm = document.getElementById('estimate-request-form');
+      var estimateSubmitBtn = document.getElementById('estimate-submit-btn');
+      var estimateStatus = document.getElementById('estimate-form-status');
+
+      if (estimateForm && estimateSubmitBtn && estimateStatus) {
+        estimateForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          estimateStatus.textContent = 'Sending your request...';
+          estimateSubmitBtn.disabled = true;
+
+          fetch(estimateForm.action, {
+            method: 'POST',
+            body: new FormData(estimateForm),
+            headers: { Accept: 'application/json' }
+          })
+            .then(function (response) {
+              if (!response.ok) throw new Error('Request failed');
+
+              estimateStatus.textContent = 'Thanks. Your estimate request was sent successfully.';
+              estimateForm.reset();
+                toggleProjectTypeOther();
+                toggleHeardAboutOther();
+            })
+            .catch(function () {
+              estimateStatus.textContent = 'Something went wrong. Please call us at (832) 944-0267.';
+            })
+            .finally(function () {
+              estimateSubmitBtn.disabled = false;
+            });
+        });
       }
 
     })();
