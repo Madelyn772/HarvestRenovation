@@ -218,7 +218,7 @@ footer.site-footer { border-top:1px solid var(--line); padding:22px 0 40px; colo
   .hero-media { min-height: 480px; }
 }
 @media (max-width: 760px) {
-  :root { --anchor-offset: 156px; }
+  :root { --anchor-offset: 188px; }
   .nav {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -232,13 +232,26 @@ footer.site-footer { border-top:1px solid var(--line); padding:22px 0 40px; colo
   .brand > div > div { font-size: 16px; }
   .brand small { display: none; }
   nav { display: none; }
-  .top-actions { width: auto; order: 2; justify-content: flex-end; margin: 0; }
-  .top-phone { display: none; }
-  .nav-cta { min-height: 40px; padding: 10px 14px; font-size: 14px; }
+  .top-actions {
+    width: 100%;
+    grid-column: 1 / -1;
+    order: 3;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 2px 0 0;
+  }
+  .top-phone,
+  .nav-cta {
+    display: inline-flex;
+    min-height: 38px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
   body { padding-bottom: 0; }
   .mobile-quick-nav {
     position: sticky;
-    top: 78px;
+    top: 108px;
     z-index: 18;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
