@@ -1214,8 +1214,11 @@ footer.site-footer {
   }
   .video-section .video-note {
     margin-top: 6px;
-    font-size: 10.8px;
-    line-height: 1.28;
+    font-size: 10.2px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
