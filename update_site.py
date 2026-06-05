@@ -18,6 +18,7 @@ OG_IMAGE = BASE_URL + '/assets/harvest-share-preview-20260605.png'
 PAGE_META = {
     'index.html': {
         'title': 'Houston Remodeling Contractor | Kitchens, Baths & Renovations | Harvest Renovation',
+        'share_title': 'Harvest Renovation',
         'description': 'Harvest Renovation is a Houston remodeling contractor serving Houston, South Houston, and surrounding communities for kitchen remodeling, bathroom remodeling, flooring, interior painting, and full home renovations.',
         'canonical': BASE_URL + '/',
     },
@@ -180,13 +181,14 @@ def add_common_head(soup, file_name):
         ensure_meta(soup, soup.head, {'name': 'robots'}, meta['robots'])
     ensure_meta(soup, soup.head, {'property': 'og:type'}, 'website')
     ensure_meta(soup, soup.head, {'property': 'og:site_name'}, 'Harvest Renovation')
-    ensure_meta(soup, soup.head, {'property': 'og:title'}, meta['title'])
+    share_title = meta.get('share_title', meta['title'])
+    ensure_meta(soup, soup.head, {'property': 'og:title'}, share_title)
     ensure_meta(soup, soup.head, {'property': 'og:description'}, meta['description'])
     ensure_meta(soup, soup.head, {'property': 'og:url'}, meta['canonical'])
     ensure_meta(soup, soup.head, {'property': 'og:image'}, OG_IMAGE)
     ensure_meta(soup, soup.head, {'property': 'og:image:alt'}, 'Harvest Renovation Houston remodeling contractor promotional graphic')
     ensure_meta(soup, soup.head, {'name': 'twitter:card'}, 'summary_large_image')
-    ensure_meta(soup, soup.head, {'name': 'twitter:title'}, meta['title'])
+    ensure_meta(soup, soup.head, {'name': 'twitter:title'}, share_title)
     ensure_meta(soup, soup.head, {'name': 'twitter:description'}, meta['description'])
     ensure_meta(soup, soup.head, {'name': 'twitter:image'}, OG_IMAGE)
 
