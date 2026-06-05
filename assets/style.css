@@ -1214,6 +1214,28 @@ footer.site-footer {
   }
 }
 
+@media (max-width: 1100px) and (orientation: landscape) {
+  .page-estimate .scope-switch {
+    background: rgba(216,168,95,0.12);
+    border-color: rgba(216,168,95,0.34);
+  }
+  .page-estimate .scope-option {
+    border-color: rgba(255,255,255,0.14);
+    background: rgba(13,13,13,0.55);
+  }
+  .page-estimate .scope-option.is-selected {
+    border-color: rgba(241,194,125,0.62);
+    background: linear-gradient(145deg, rgba(216,168,95,0.30), rgba(216,168,95,0.18));
+    box-shadow: 0 0 0 1px rgba(241,194,125,0.26) inset, 0 10px 24px rgba(0,0,0,0.24);
+  }
+  .page-estimate .scope-option.is-selected span {
+    color: #f7ecd8;
+  }
+  .page-estimate .scope-option.is-selected small {
+    color: rgba(244,239,231,0.92);
+  }
+}
+
 @media (max-width: 768px) {
   .hero-media { min-height: 400px; }
   .float-card h3 {
