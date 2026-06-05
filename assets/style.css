@@ -221,7 +221,7 @@ label { display:grid; gap:8px; color:var(--muted); font-size:14px; }
 .field-label {
   display: inline-flex;
   align-items: baseline;
-  gap: 4px;
+  gap: 6px;
 }
 fieldset { margin: 0; min-inline-size: 0; border: 0; }
 input, textarea, select {
@@ -249,6 +249,12 @@ input::placeholder, textarea::placeholder { color:#9d907d; }
   color: #e27b7b;
   font-weight: 700;
   line-height: 1;
+}
+.field-label .required-mark {
+  margin-left: 1px;
+}
+.estimate-required-note .required-mark {
+  margin-right: 4px;
 }
 .scope-switch {
   margin: 8px 0 2px;
@@ -798,12 +804,14 @@ footer.site-footer {
   }
 }
 @media (max-width: 760px) and (orientation: portrait) {
-  :root { --anchor-offset: 176px; }
+  :root { --anchor-offset: 206px; }
   .hero h1 { font-size: clamp(28px, 8.2vw, 42px); }
   .nav {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(152px, 46vw);
-    grid-template-areas: 'brand actions';
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'brand cta'
+      'call call';
     align-items: center;
     gap: 6px;
     min-height: auto;
@@ -839,17 +847,7 @@ footer.site-footer {
   }
   nav { display: none; }
   .top-actions {
-    grid-area: actions;
-    width: auto;
-    order: 0;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 4px;
-    margin: 0;
-    transform: none;
-    min-width: 152px;
+    display: contents;
   }
   .top-phone,
   .nav-cta {
@@ -860,7 +858,15 @@ footer.site-footer {
     justify-content: center;
     white-space: nowrap;
   }
-  .nav-cta { display: inline-flex; }
+  .nav-cta {
+    grid-area: cta;
+    align-self: center;
+  }
+  .top-phone {
+    grid-area: call;
+    width: 100%;
+    margin-top: 2px;
+  }
   .page-estimate .top-phone,
   .page-estimate .nav-cta {
     min-height: 36px;
@@ -896,7 +902,7 @@ footer.site-footer {
   body { padding-bottom: 0; }
   .mobile-quick-nav {
     position: sticky;
-    top: 72px;
+    top: 110px;
     z-index: 18;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
