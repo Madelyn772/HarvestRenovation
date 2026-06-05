@@ -1212,10 +1212,10 @@ footer.site-footer {
     width: 100%;
     justify-content: center;
   }
-  .video-note {
-    margin-top: 8px;
-    font-size: 12px;
-    line-height: 1.35;
+  .video-section .video-note {
+    margin-top: 6px;
+    font-size: 10.8px;
+    line-height: 1.28;
   }
 }
 
