@@ -1214,11 +1214,14 @@ footer.site-footer {
   }
   .video-section .video-note {
     margin-top: 6px;
-    font-size: 10.2px;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: clamp(8.2px, 2.35vw, 10.2px);
+    line-height: 1.28;
+    white-space: normal;
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+    -webkit-box-orient: initial !important;
+    overflow: visible;
+    text-overflow: clip;
   }
 }
 
