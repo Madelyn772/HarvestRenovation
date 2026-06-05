@@ -760,7 +760,8 @@ footer.site-footer {
     text-align: center;
   }
   .page-estimate .scope-option.is-selected {
-    background: radial-gradient(circle at 50% 50%, rgba(216,168,95,0.2), rgba(216,168,95,0.1));
+    background: rgba(216,168,95,0.14);
+    box-shadow: 0 0 0 1px rgba(241,194,125,0.18) inset;
   }
   .page-estimate .estimate-required-note {
     margin: 10px 0 0;
@@ -910,6 +911,17 @@ footer.site-footer {
     justify-content: center;
     white-space: nowrap;
   }
+  .top-phone {
+    font-size: 0;
+    letter-spacing: 0;
+  }
+  .top-phone::after {
+    content: 'Call Now';
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    line-height: 1;
+  }
   .page-estimate .top-phone,
   .page-estimate .nav-cta {
     min-height: 36px;
@@ -933,6 +945,9 @@ footer.site-footer {
     .top-phone,
     .nav-cta {
       padding: 8px 7px;
+      font-size: 9.5px;
+    }
+    .top-phone::after {
       font-size: 9.5px;
     }
   }
@@ -1034,6 +1049,36 @@ footer.site-footer {
   .hero { padding-top: 24px; }
   .hero-copy { padding:20px 16px; }
   .hero-copy p.lead { font-size: 15.5px; }
+  .index-serving-eyebrow {
+    display: inline-flex;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    width: fit-content;
+    max-width: none;
+    font-size: clamp(10.8px, 3.1vw, 13px);
+  }
+  .hero-media { min-height: 440px; }
+  .float-card {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 14px;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+  }
+  .float-card h3 {
+    margin: 0 0 4px;
+    font-size: 17px;
+    line-height: 1.12;
+  }
+  .float-card p {
+    font-size: 12.5px;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .section-head h2 { font-size: clamp(24px, 7.2vw, 30px); }
   .section-head p { font-size: 14px; }
   .grid-4, .grid-3, .service-grid, .testimonial-grid, .faq-grid, .metrics, .hero-proof, .gallery-grid, form { grid-template-columns: 1fr; }
@@ -1110,7 +1155,7 @@ footer.site-footer {
   }
   .page-estimate .scope-switch {
     margin-top: 4px;
-    background: radial-gradient(circle at 50% 42%, rgba(216,168,95,0.16), rgba(255,255,255,0.02));
+    background: rgba(216,168,95,0.1);
     border-color: rgba(216,168,95,0.28);
   }
   .page-estimate .scope-option {
@@ -1124,7 +1169,8 @@ footer.site-footer {
     text-align: center;
   }
   .page-estimate .scope-option.is-selected {
-    background: radial-gradient(circle at 50% 50%, rgba(216,168,95,0.2), rgba(216,168,95,0.1));
+    background: rgba(216,168,95,0.14);
+    box-shadow: 0 0 0 1px rgba(241,194,125,0.18) inset;
   }
   .page-estimate .estimate-aside-actions .btn,
   .page-estimate .estimate-form-actions .btn {
@@ -1134,6 +1180,13 @@ footer.site-footer {
 }
 
 @media (max-width: 768px) {
+  .hero-media { min-height: 400px; }
+  .float-card h3 {
+    font-size: 16px;
+  }
+  .float-card p {
+    -webkit-line-clamp: 2;
+  }
   footer.site-footer {
     padding: 16px 0 38px;
   }
