@@ -798,17 +798,24 @@ footer.site-footer {
   }
 }
 @media (max-width: 760px) and (orientation: portrait) {
-  :root { --anchor-offset: 176px; }
+  :root { --anchor-offset: 206px; }
   .hero h1 { font-size: clamp(28px, 8.2vw, 42px); }
   .nav {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(142px, 44vw);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'brand'
+      'actions';
     align-items: center;
     gap: 8px;
     min-height: auto;
     padding: 10px 0;
   }
-  .brand { min-width: 0; max-width: 100%; }
+  .brand {
+    grid-area: brand;
+    min-width: 0;
+    max-width: 100%;
+  }
   .brand img { width: 41px; height: 41px; border-radius: 8px; }
   .brand > div { min-width: 0; }
   .brand > div > div {
@@ -834,31 +841,34 @@ footer.site-footer {
   }
   nav { display: none; }
   .top-actions {
+    grid-area: actions;
     width: 100%;
     order: 0;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 4px;
+    gap: 8px;
     margin: 0;
     transform: none;
-    min-width: 142px;
+    min-width: 0;
   }
   .top-phone,
   .nav-cta {
     display: inline-flex;
+    flex: 1;
     min-height: 38px;
-    padding: 8px 10px;
-    font-size: 10.6px;
+    padding: 8px 11px;
+    font-size: 11px;
+    justify-content: center;
     white-space: nowrap;
   }
   .nav-cta { display: inline-flex; }
   .page-estimate .top-phone,
   .page-estimate .nav-cta {
     min-height: 38px;
-    padding: 8px 10px;
-    font-size: 10.6px;
+    padding: 8px 11px;
+    font-size: 11px;
   }
   .page-estimate .btn {
     min-height: 36px;
@@ -875,7 +885,7 @@ footer.site-footer {
     }
     .top-phone,
     .nav-cta {
-      padding: 8px 9px;
+      padding: 8px 8px;
       font-size: 10.1px;
     }
   }
@@ -888,7 +898,7 @@ footer.site-footer {
   body { padding-bottom: 0; }
   .mobile-quick-nav {
     position: sticky;
-    top: 72px;
+    top: 106px;
     z-index: 18;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
