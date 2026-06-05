@@ -849,14 +849,12 @@ footer.site-footer {
   }
 }
 @media (max-width: 760px) and (orientation: portrait) {
-  :root { --anchor-offset: 206px; }
+  :root { --anchor-offset: 176px; }
   .hero h1 { font-size: clamp(28px, 8.2vw, 42px); }
   .nav {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      'brand cta'
-      'call call';
+    grid-template-areas: 'brand actions';
     align-items: center;
     gap: 6px;
     min-height: auto;
@@ -892,7 +890,16 @@ footer.site-footer {
   }
   nav { display: none; }
   .top-actions {
-    display: contents;
+    grid-area: actions;
+    width: auto;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 4px;
+    margin: 0;
+    transform: none;
+    min-width: 146px;
   }
   .top-phone,
   .nav-cta {
@@ -902,15 +909,6 @@ footer.site-footer {
     font-size: 10px;
     justify-content: center;
     white-space: nowrap;
-  }
-  .nav-cta {
-    grid-area: cta;
-    align-self: center;
-  }
-  .top-phone {
-    grid-area: call;
-    width: 100%;
-    margin-top: 2px;
   }
   .page-estimate .top-phone,
   .page-estimate .nav-cta {
@@ -947,7 +945,7 @@ footer.site-footer {
   body { padding-bottom: 0; }
   .mobile-quick-nav {
     position: sticky;
-    top: 110px;
+    top: 76px;
     z-index: 18;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1086,7 +1084,10 @@ footer.site-footer {
     font-size: 14px;
   }
   .page-estimate .estimate-required-note {
-    margin-top: 6px;
+    margin: 10px 0 2px;
+  }
+  .page-estimate form {
+    margin-top: 8px;
   }
   .page-estimate label {
     gap: 6px;
@@ -1108,8 +1109,22 @@ footer.site-footer {
     gap: 10px;
   }
   .page-estimate .scope-switch {
-    background: rgba(216,168,95,0.1);
+    margin-top: 4px;
+    background: radial-gradient(circle at 50% 42%, rgba(216,168,95,0.16), rgba(255,255,255,0.02));
     border-color: rgba(216,168,95,0.28);
+  }
+  .page-estimate .scope-option {
+    min-height: 92px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+  }
+  .page-estimate .scope-option span,
+  .page-estimate .scope-option small {
+    text-align: center;
+  }
+  .page-estimate .scope-option.is-selected {
+    background: radial-gradient(circle at 50% 50%, rgba(216,168,95,0.2), rgba(216,168,95,0.1));
   }
   .page-estimate .estimate-aside-actions .btn,
   .page-estimate .estimate-form-actions .btn {
