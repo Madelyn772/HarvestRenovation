@@ -12,8 +12,8 @@ MAPS_URL = 'https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZ
 REVIEWS_URL = MAPS_URL
 FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61551641154186'
 INSTAGRAM_URL = 'https://www.instagram.com/harvestrenovation/'
-LOGO_URL = 'https://static.wixstatic.com/media/d97af0_58d02b84f0984b95a85805ba1ac1d82e~mv2.png/v1/fill/w_292,h_243,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/image000000_edited.png'
-OG_IMAGE = 'https://static.wixstatic.com/media/d97af0_4964c46870fb446b9a36ff7c1952d442~mv2.png/v1/fill/w_980,h_542,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/file.png'
+LOGO_URL = BASE_URL + '/assets/harvest-logo.png'
+OG_IMAGE = BASE_URL + '/assets/harvest-share-preview-20260605.png'
 
 PAGE_META = {
     'index.html': {
@@ -23,7 +23,7 @@ PAGE_META = {
     },
     'estimate.html': {
         'title': 'Request a Free Remodeling Estimate | Harvest Renovation Houston',
-        'description': 'Request a free remodeling estimate from Harvest Renovation in Houston. Share your project type, ZIP code, budget, timeline, and preferred contact method for a faster follow-up.',
+        'description': 'Request a free remodeling estimate from Harvest Renovation in Houston. Share your project details, service-area ZIP code, and preferred contact method for a faster follow-up.',
         'canonical': BASE_URL + '/estimate.html',
     },
     'kitchen-remodeling.html': {
@@ -405,7 +405,7 @@ def update_estimate_page(soup):
             phone_label.insert_after(preferred_label)
         details_label = form.find('textarea', attrs={'name': 'project_details'})
         if details_label:
-            details_label['placeholder'] = 'Tell us about the room, the work you want done, your timeline, and anything important we should know. Please mention if photos are available.'
+            details_label['placeholder'] = 'Tell us about the room, work needed, timing, concerns, and whether photos are available.'
         help_block = form.find('div', id='estimate-form-status')
         if help_block:
             help_block['role'] = 'status'

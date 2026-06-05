@@ -45,7 +45,6 @@ faf3b73fff13943453e81ff4d9f9724f00037b47 assets/img-q4gZKIEh.jpg
 2a1b8f78a38198bad7b139dcdffd6970b1f74dfb assets/img-txhSYbtZ.jpg
 750253187f24a45b07f42b0fe0588e22010e7066 assets/img-UpvXMUsf.jpg
 2df1f6d36089c8efdb845148e16f5c1e1650ce0f assets/img-V7XGolLS.jpg
-ef042b79b4f5092c93f556068c45238f9454eb7d assets/img-Vdm4n3rM.jpg
 bfe73a881c77b7bce4d46161e7f2796183112e82 assets/img-x0dlhcrb.jpg
 b073e37803989bc99402c45e996a22b66ee52fb2 assets/img-XlcHEM6B.jpg
 d19ff1cf898139444e7b26218d869c38f66cbc4c assets/img-xQMmn47Q.jpg
@@ -55,7 +54,6 @@ d57cd26390a4579a5fa72502c25b3757fc5b6e7a assets/img-xzc79XO5.jpg
 dfa6c3719970aeefa26c1ddcfee5ebeb3c4512e4 assets/kitchen-base.jpg
 5274f8a992e2c23233011c779cd87ad8f19bb061 assets/kitchen-hero.jpg
 57c50af0e859d56f872942f0074f0f0625775bd3 assets/kitchen-waterfall-island.jpg
-ce70c18387d4878d93f03b7a8a8c5657f84323b2 assets/planning-base.jpg
 2f6f408fd69ba6b0586b7422418b4d413c2705c3 assets/style.css
 26298c68756f1316bd46bfeabf7c70b97690ff31 assets/welcome-video-original.mp4
 89d001a3f45c4c82a02956d062fadb3f7d2e9730 assets/welcome-video-poster.jpg

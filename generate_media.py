@@ -6,7 +6,7 @@ ASSETS = ROOT / 'assets'
 
 BASE_IMAGES = {
     'kitchen': ASSETS / 'kitchen-base.jpg',
-    'planning': ASSETS / 'planning-base.jpg',
+    'planning': ASSETS / 'proof-kit-cover.jpg',
 }
 
 GALLERY_SPECS = [

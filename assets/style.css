@@ -798,16 +798,14 @@ footer.site-footer {
   }
 }
 @media (max-width: 760px) and (orientation: portrait) {
-  :root { --anchor-offset: 206px; }
+  :root { --anchor-offset: 176px; }
   .hero h1 { font-size: clamp(28px, 8.2vw, 42px); }
   .nav {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      'brand'
-      'actions';
+    grid-template-columns: minmax(0, 1fr) minmax(152px, 46vw);
+    grid-template-areas: 'brand actions';
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     min-height: auto;
     padding: 10px 0;
   }
@@ -819,21 +817,21 @@ footer.site-footer {
   .brand img { width: 41px; height: 41px; border-radius: 8px; }
   .brand > div { min-width: 0; }
   .brand > div > div {
-    font-size: 12.8px;
-    line-height: 1.14;
-    white-space: normal;
+    font-size: 12.2px;
+    line-height: 1.08;
+    white-space: nowrap;
     text-align: left;
   }
   .brand small {
     display: block;
     color: var(--muted);
-    font-size: 10.2px;
-    letter-spacing: .04em;
-    line-height: 1.12;
+    font-size: 9.4px;
+    letter-spacing: .03em;
+    line-height: 1.06;
     text-align: left;
     text-transform: uppercase;
     white-space: normal;
-    max-width: 100%;
+    max-width: 126px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -842,33 +840,32 @@ footer.site-footer {
   nav { display: none; }
   .top-actions {
     grid-area: actions;
-    width: 100%;
+    width: auto;
     order: 0;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 8px;
+    gap: 4px;
     margin: 0;
     transform: none;
-    min-width: 0;
+    min-width: 152px;
   }
   .top-phone,
   .nav-cta {
     display: inline-flex;
-    flex: 1;
-    min-height: 38px;
-    padding: 8px 11px;
-    font-size: 11px;
+    min-height: 36px;
+    padding: 8px 9px;
+    font-size: 10px;
     justify-content: center;
     white-space: nowrap;
   }
   .nav-cta { display: inline-flex; }
   .page-estimate .top-phone,
   .page-estimate .nav-cta {
-    min-height: 38px;
-    padding: 8px 11px;
-    font-size: 11px;
+    min-height: 36px;
+    padding: 8px 9px;
+    font-size: 10px;
   }
   .page-estimate .btn {
     min-height: 36px;
@@ -877,16 +874,17 @@ footer.site-footer {
 
   @media (max-width: 420px) {
     .brand > div > div {
-      font-size: 12.1px;
+      font-size: 11.8px;
     }
     .brand small {
-      font-size: 9.6px;
+      font-size: 9.1px;
       letter-spacing: .03em;
+      max-width: 118px;
     }
     .top-phone,
     .nav-cta {
-      padding: 8px 8px;
-      font-size: 10.1px;
+      padding: 8px 7px;
+      font-size: 9.5px;
     }
   }
 
@@ -898,7 +896,7 @@ footer.site-footer {
   body { padding-bottom: 0; }
   .mobile-quick-nav {
     position: sticky;
-    top: 106px;
+    top: 72px;
     z-index: 18;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
