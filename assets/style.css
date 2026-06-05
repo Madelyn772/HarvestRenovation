@@ -218,6 +218,11 @@ section { padding: 34px 0; }
 }
 form { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px; margin-top:18px; grid-auto-flow: row dense; align-items:start; }
 label { display:grid; gap:8px; color:var(--muted); font-size:14px; }
+.field-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
 fieldset { margin: 0; min-inline-size: 0; border: 0; }
 input, textarea, select {
   width:100%; padding:14px 16px; border-radius:16px; border:1px solid rgba(255,255,255,0.08);
@@ -243,6 +248,7 @@ input::placeholder, textarea::placeholder { color:#9d907d; }
 .required-mark {
   color: #e27b7b;
   font-weight: 700;
+  line-height: 1;
 }
 .scope-switch {
   margin: 8px 0 2px;
@@ -796,7 +802,7 @@ footer.site-footer {
   .hero h1 { font-size: clamp(28px, 8.2vw, 42px); }
   .nav {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 164px;
+    grid-template-columns: minmax(0, 1fr) minmax(142px, 44vw);
     align-items: center;
     gap: 8px;
     min-height: auto;
@@ -807,8 +813,8 @@ footer.site-footer {
   .brand > div { min-width: 0; }
   .brand > div > div {
     font-size: 12.8px;
-    line-height: 1.08;
-    white-space: nowrap;
+    line-height: 1.14;
+    white-space: normal;
     text-align: left;
   }
   .brand small {
@@ -820,7 +826,7 @@ footer.site-footer {
     text-align: left;
     text-transform: uppercase;
     white-space: normal;
-    max-width: 132px;
+    max-width: 100%;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -828,7 +834,7 @@ footer.site-footer {
   }
   nav { display: none; }
   .top-actions {
-    width: 164px;
+    width: 100%;
     order: 0;
     justify-content: flex-end;
     align-items: center;
@@ -837,7 +843,7 @@ footer.site-footer {
     gap: 4px;
     margin: 0;
     transform: none;
-    min-width: 164px;
+    min-width: 142px;
   }
   .top-phone,
   .nav-cta {
@@ -858,6 +864,22 @@ footer.site-footer {
     min-height: 36px;
     padding: 8px 11px;
   }
+
+  @media (max-width: 420px) {
+    .brand > div > div {
+      font-size: 12.1px;
+    }
+    .brand small {
+      font-size: 9.6px;
+      letter-spacing: .03em;
+    }
+    .top-phone,
+    .nav-cta {
+      padding: 8px 9px;
+      font-size: 10.1px;
+    }
+  }
+
   .btn {
     padding: 9px 11px;
     font-size: 11px;
@@ -958,6 +980,15 @@ footer.site-footer {
   .section-head h2 { font-size: clamp(24px, 7.2vw, 30px); }
   .section-head p { font-size: 14px; }
   .grid-4, .grid-3, .service-grid, .testimonial-grid, .faq-grid, .metrics, .hero-proof, .gallery-grid, form { grid-template-columns: 1fr; }
+  .gallery-card-meta {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .gallery-card-meta span:last-child {
+    margin-left: auto;
+    text-align: right;
+  }
   .span-2 { grid-column: span 1; }
   .scope-switch-options,
   .scope-details-grid,
@@ -1016,6 +1047,10 @@ footer.site-footer {
   .page-estimate .estimate-address-group {
     padding: 14px;
     gap: 10px;
+  }
+  .page-estimate .scope-switch {
+    background: rgba(216,168,95,0.1);
+    border-color: rgba(216,168,95,0.28);
   }
   .page-estimate .estimate-aside-actions .btn,
   .page-estimate .estimate-form-actions .btn {
