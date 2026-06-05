@@ -750,17 +750,22 @@ footer.site-footer {
     align-items: stretch;
   }
   .page-estimate .scope-option {
+    display: flex;
+    flex-direction: column;
     min-height: 96px;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    padding: 12px 14px;
     text-align: center;
   }
   .page-estimate .scope-option span,
   .page-estimate .scope-option small {
+    width: 100%;
     text-align: center;
   }
   .page-estimate .scope-option.is-selected {
     background: rgba(216,168,95,0.14);
+    background-image: none;
     box-shadow: 0 0 0 1px rgba(241,194,125,0.18) inset;
   }
   .page-estimate .estimate-required-note {
@@ -916,7 +921,7 @@ footer.site-footer {
   .top-phone::after {
     content: 'Call Now';
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: .01em;
     line-height: 1;
   }
@@ -1082,6 +1087,12 @@ footer.site-footer {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  .page-gallery .float-card p {
+    display: block;
+    -webkit-line-clamp: initial;
+    -webkit-box-orient: initial;
+    overflow: visible;
+  }
   .section-head h2 { font-size: clamp(24px, 7.2vw, 30px); }
   .section-head p { font-size: 14px; }
   .grid-4, .grid-3, .service-grid, .testimonial-grid, .faq-grid, .metrics, .hero-proof, .gallery-grid, form { grid-template-columns: 1fr; }
@@ -1189,6 +1200,9 @@ footer.site-footer {
   }
   .float-card p {
     -webkit-line-clamp: 2;
+  }
+  .page-gallery .float-card p {
+    -webkit-line-clamp: initial;
   }
   footer.site-footer {
     padding: 16px 0 38px;
