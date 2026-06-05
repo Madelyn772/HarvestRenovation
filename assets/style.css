@@ -769,6 +769,8 @@ footer.site-footer {
     align-items: center;
     padding: 12px 14px;
     text-align: center;
+    border-color: rgba(255,255,255,0.14);
+    background: rgba(13,13,13,0.55);
   }
   .page-estimate .scope-option span,
   .page-estimate .scope-option small {
@@ -776,9 +778,15 @@ footer.site-footer {
     text-align: center;
   }
   .page-estimate .scope-option.is-selected {
-    background: rgba(216,168,95,0.14);
-    background-image: none;
-    box-shadow: 0 0 0 1px rgba(241,194,125,0.18) inset;
+    border-color: rgba(241,194,125,0.62);
+    background: linear-gradient(145deg, rgba(216,168,95,0.30), rgba(216,168,95,0.18));
+    box-shadow: 0 0 0 1px rgba(241,194,125,0.26) inset, 0 10px 24px rgba(0,0,0,0.24);
+  }
+  .page-estimate .scope-option.is-selected span {
+    color: #f7ecd8;
+  }
+  .page-estimate .scope-option.is-selected small {
+    color: rgba(244,239,231,0.92);
   }
   .page-estimate .estimate-required-note {
     margin: 10px 0 0;
