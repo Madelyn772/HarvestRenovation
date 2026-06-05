@@ -670,6 +670,18 @@ footer.site-footer {
   .grid-3, .service-grid, .testimonial-grid, .faq-grid, .metrics, .hero-proof, .gallery-grid {
     grid-template-columns: repeat(3, minmax(0,1fr));
   }
+  .page-gallery .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+  .page-gallery .gallery-card-meta {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page-gallery .gallery-card-meta span:last-child {
+    margin-left: auto;
+    text-align: right;
+  }
   .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
   .hero-copy { padding: 24px; }
   .hero-media { min-height: 380px; }
@@ -908,8 +920,8 @@ footer.site-footer {
   .top-phone,
   .nav-cta {
     display: inline-flex;
-    min-height: 36px;
-    padding: 8px 9px;
+    min-height: 38px;
+    padding: 8px 10px;
     font-size: 10px;
     justify-content: center;
     white-space: nowrap;
@@ -917,12 +929,13 @@ footer.site-footer {
   .top-phone {
     font-size: 0;
     letter-spacing: 0;
+    min-width: 88px;
   }
   .top-phone::after {
     content: 'Call Now';
-    font-size: 10px;
+    font-size: 10.8px;
     font-weight: 900;
-    letter-spacing: .01em;
+    letter-spacing: .02em;
     line-height: 1;
   }
   .page-estimate .nav-cta {
@@ -952,11 +965,11 @@ footer.site-footer {
     }
     .top-phone,
     .nav-cta {
-      padding: 8px 7px;
-      font-size: 9.5px;
+      padding: 8px 8px;
+      font-size: 9.8px;
     }
     .top-phone::after {
-      font-size: 9.5px;
+      font-size: 10px;
     }
   }
 
