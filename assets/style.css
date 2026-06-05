@@ -740,6 +740,51 @@ footer.site-footer {
     padding: 8px 10px;
     font-size: 10.6px;
   }
+  .page-estimate .top-phone,
+  .page-estimate .nav-cta {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 10.6px;
+  }
+  .page-estimate .scope-switch-options {
+    align-items: stretch;
+  }
+  .page-estimate .scope-option {
+    min-height: 96px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+  }
+  .page-estimate .scope-option span,
+  .page-estimate .scope-option small {
+    text-align: center;
+  }
+  .page-estimate .scope-option.is-selected {
+    background: radial-gradient(circle at 50% 50%, rgba(216,168,95,0.2), rgba(216,168,95,0.1));
+  }
+  .page-estimate .estimate-required-note {
+    margin: 10px 0 0;
+  }
+  .page-estimate form {
+    margin-top: 8px;
+  }
+  .page-estimate .scope-switch {
+    margin-top: 4px;
+  }
+  .page-estimate .estimate-form-actions {
+    grid-template-columns: 1fr;
+  }
+  .page-estimate #estimate-submit-btn,
+  .page-estimate .estimate-form-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .page-estimate .estimate-form-actions .help,
+  .page-estimate .estimate-form-actions #estimate-form-status {
+    grid-column: span 1;
+    text-align: center;
+  }
   .hero-copy p.lead { font-size: 15px; }
   .section-head h2 { font-size: clamp(24px, 3.2vw, 34px); }
   .section-head p { font-size: 14px; }
