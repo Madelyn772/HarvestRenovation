@@ -909,10 +909,9 @@ footer.site-footer {
     line-height: 1.06;
     text-align: left;
     text-transform: uppercase;
-    white-space: normal;
+    white-space: pre-line;
     max-width: none;
     overflow: visible;
-    display: block;
   }
   nav { display: none; }
   .top-actions {
@@ -958,10 +957,6 @@ footer.site-footer {
     padding: 8px 10px;
     font-size: 0;
     letter-spacing: 0;
-  }
-  .page-estimate .btn {
-    min-height: 36px;
-    padding: 8px 11px;
   }
   .btn {
     min-height: 48px;
