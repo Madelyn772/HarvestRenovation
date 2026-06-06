@@ -94,21 +94,23 @@ nav a:hover {
 }
 .nav-cta { min-height: 42px; white-space: nowrap; letter-spacing: .01em; transition: transform .2s ease, box-shadow .2s ease, filter .2s ease; }
 .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 22px; border-radius:999px; font-weight:800; transition:all .2s ease; white-space: nowrap; letter-spacing: .01em; }
-.btn:hover,
-.nav-cta:hover,
-.top-phone:hover {
-  transform: translateY(-2px);
-}
-.top-phone:hover,
-.btn-secondary:hover {
-  border-color: rgba(241,194,125,0.45);
-  background: rgba(255,255,255,0.06);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.22);
-}
-.nav-cta:hover,
-.btn-primary:hover {
-  filter: brightness(1.03);
-  box-shadow: 0 14px 34px rgba(216,168,95,0.35), inset 0 1px 0 rgba(255,255,255,0.36);
+@media (hover: hover) {
+  .btn:hover,
+  .nav-cta:hover,
+  .top-phone:hover {
+    transform: translateY(-2px);
+  }
+  .top-phone:hover,
+  .btn-secondary:hover {
+    border-color: rgba(241,194,125,0.45);
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+  }
+  .nav-cta:hover,
+  .btn-primary:hover {
+    filter: brightness(1.03);
+    box-shadow: 0 14px 34px rgba(216,168,95,0.35), inset 0 1px 0 rgba(255,255,255,0.36);
+  }
 }
 .page-estimate .top-phone,
 .page-estimate .nav-cta,
@@ -947,13 +949,13 @@ footer.site-footer {
     line-height: 1;
   }
   .page-estimate .nav-cta {
-    min-height: 36px;
-    padding: 8px 9px;
-    font-size: 10px;
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 10.6px;
   }
   .page-estimate .top-phone {
-    min-height: 36px;
-    padding: 8px 9px;
+    min-height: 38px;
+    padding: 8px 10px;
     font-size: 0;
     letter-spacing: 0;
   }
