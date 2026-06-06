@@ -947,17 +947,6 @@ footer.site-footer {
     letter-spacing: .02em;
     line-height: 1;
   }
-  .page-estimate .nav-cta {
-    min-height: 38px;
-    padding: 8px 10px;
-    font-size: 10.6px;
-  }
-  .page-estimate .top-phone {
-    min-height: 38px;
-    padding: 8px 10px;
-    font-size: 0;
-    letter-spacing: 0;
-  }
   .btn {
     min-height: 48px;
     padding: 14px 24px;
