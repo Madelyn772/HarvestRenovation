@@ -983,11 +983,6 @@ footer.site-footer {
     }
   }
 
-  .btn {
-    padding: 9px 11px;
-    font-size: 11px;
-    white-space: nowrap;
-  }
   body { padding-bottom: 0; }
   .mobile-quick-nav {
     position: sticky;
