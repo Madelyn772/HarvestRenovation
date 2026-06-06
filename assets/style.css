@@ -112,8 +112,6 @@ nav a:hover {
     box-shadow: 0 14px 34px rgba(216,168,95,0.35), inset 0 1px 0 rgba(255,255,255,0.36);
   }
 }
-.page-estimate .top-phone,
-.page-estimate .nav-cta,
 .page-estimate .btn {
   min-height: 46px;
   padding: 12px 18px;
@@ -946,23 +944,6 @@ footer.site-footer {
     font-weight: 900;
     letter-spacing: .02em;
     line-height: 1;
-  }
-  .page-estimate .top-phone,
-  .page-estimate .nav-cta {
-    min-height: 38px;
-    padding: 8px 10px;
-    font-size: 10px;
-  }
-  .page-estimate .nav-cta {
-    min-height: 38px;
-    padding: 8px 10px;
-    font-size: 10.6px;
-  }
-  .page-estimate .top-phone {
-    min-height: 38px;
-    padding: 8px 10px;
-    font-size: 0;
-    letter-spacing: 0;
   }
   .btn {
     min-height: 48px;
