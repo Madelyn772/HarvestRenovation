@@ -422,39 +422,25 @@
     var closeButton = document.getElementById('gallery-talk-inline-close');
     var previewPlayer = document.getElementById('gallery-talk-video-player');
     var playButton = document.getElementById('gallery-talk-video-play');
-    var modal = document.getElementById('gallery-talk-video-modal');
-    var modalCloseButton = document.getElementById('gallery-talk-video-modal-close');
-    var modalPlayer = document.getElementById('gallery-talk-video-modal-player');
-    if (!section || !calloutBox || !popup || !closeButton || !previewPlayer || !playButton || !modal || !modalCloseButton || !modalPlayer) return;
+    if (!section || !calloutBox || !popup || !closeButton || !previewPlayer || !playButton) return;
 
     var hasShown = false;
 
-    function openModalFromStart() {
-      previewPlayer.pause();
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      modalPlayer.currentTime = 0;
-      modalPlayer.muted = false;
-      var playPromise = modalPlayer.play();
+    function playInlineWithSound() {
+      previewPlayer.loop = false;
+      previewPlayer.muted = false;
+      previewPlayer.controls = false;
+      previewPlayer.currentTime = 0;
+      playButton.classList.add('is-hidden');
+
+      var playPromise = previewPlayer.play();
       if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(function () {});
-      }
-    }
-
-    function closeModal() {
-      modal.setAttribute('aria-hidden', 'true');
-      modalPlayer.pause();
-      modalPlayer.currentTime = 0;
-      document.body.style.overflow = '';
-
-      if (popup.classList.contains('is-visible')) {
-        previewPlayer.currentTime = 0;
-        previewPlayer.muted = true;
-        previewPlayer.loop = true;
-        var previewPlay = previewPlayer.play();
-        if (previewPlay && typeof previewPlay.catch === 'function') {
-          previewPlay.catch(function () {});
-        }
+        playPromise.catch(function () {
+          previewPlayer.controls = false;
+          previewPlayer.muted = true;
+          previewPlayer.loop = true;
+          playButton.classList.remove('is-hidden');
+        });
       }
     }
 
@@ -466,8 +452,10 @@
       popup.classList.add('is-visible');
       popup.setAttribute('aria-hidden', 'false');
       previewPlayer.currentTime = 0;
+      previewPlayer.controls = false;
       previewPlayer.loop = true;
       previewPlayer.muted = true;
+      playButton.classList.remove('is-hidden');
       var playPromise = previewPlayer.play();
       if (playPromise && typeof playPromise.catch === 'function') {
         playPromise.catch(function () {});
@@ -479,6 +467,10 @@
       popup.setAttribute('aria-hidden', 'true');
       previewPlayer.pause();
       previewPlayer.currentTime = 0;
+      previewPlayer.controls = false;
+      previewPlayer.muted = true;
+      previewPlayer.loop = true;
+      playButton.classList.remove('is-hidden');
       popup.setAttribute('hidden', 'hidden');
       calloutBox.classList.remove('is-preview-open');
     }
@@ -495,21 +487,22 @@
     observer.observe(section);
 
     closeButton.addEventListener('click', closePopup);
-    playButton.addEventListener('click', openModalFromStart);
-    modalCloseButton.addEventListener('click', closeModal);
+    playButton.addEventListener('click', playInlineWithSound);
 
-    modal.addEventListener('click', function (event) {
-      if (event.target === modal) {
-        closeModal();
+    previewPlayer.addEventListener('ended', function () {
+      previewPlayer.controls = false;
+      previewPlayer.muted = true;
+      previewPlayer.loop = true;
+      previewPlayer.currentTime = 0;
+      playButton.classList.remove('is-hidden');
+      var previewPlay = previewPlayer.play();
+      if (previewPlay && typeof previewPlay.catch === 'function') {
+        previewPlay.catch(function () {});
       }
     });
 
     document.addEventListener('keydown', function (event) {
       if (event.key !== 'Escape') return;
-      if (modal.getAttribute('aria-hidden') === 'false') {
-        closeModal();
-        return;
-      }
       if (popup.getAttribute('aria-hidden') === 'false') {
         closePopup();
       }
