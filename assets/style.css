@@ -1854,6 +1854,14 @@ footer.site-footer {
 
 @media (max-width: 768px) {
   .hero-media { min-height: 400px; }
+  .talk-inline-popup,
+  .page-gallery .talk-inline-popup {
+    width: min(280px, 90vw);
+    max-width: 280px;
+  }
+  .talk-video-player {
+    max-height: 34vh;
+  }
   .float-card h3 {
     font-size: 16px;
   }
@@ -1881,7 +1889,7 @@ footer.site-footer {
   .page-gallery .talk-inline-popup {
     position: static;
     width: 100%;
-    max-width: 360px;
+    max-width: 280px;
     margin: 0;
   }
   .video-section { padding: 18px; }
@@ -1892,7 +1900,7 @@ footer.site-footer {
   }
   .talk-video-player {
     width: 100%;
-    max-height: 46vh;
+    max-height: 34vh;
   }
   .talk-video-modal-player {
     max-height: 72vh;
@@ -1977,8 +1985,8 @@ footer.site-footer {
   }
   .talk-inline-popup,
   .page-gallery .talk-inline-popup {
-    width: min(340px, calc(100% - 16px));
-    max-width: calc(100% - 16px);
+    width: min(280px, calc(100% - 24px));
+    max-width: min(280px, calc(100% - 24px));
     justify-self: center;
     margin: 10px auto 0;
   }

@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path('/home/user/harvest')
 ASSETS = ROOT / 'assets'
-BASE_URL = 'https://www.harvestrenovation.net'
+BASE_URL = ''
 PHONE = '+18329440267'
 DISPLAY_PHONE = '(832) 944-0267'
 MAPS_URL = 'https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0'
