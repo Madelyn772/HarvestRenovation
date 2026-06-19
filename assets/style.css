@@ -1965,14 +1965,13 @@ footer.site-footer {
 @media (max-width: 760px) {
   .page-gallery #gallery-project-talk-callout .hero-actions {
     display: grid;
-    grid-template-columns: repeat(2, max-content);
-    justify-content: start;
-    column-gap: 12px;
+    grid-template-columns: 1fr;
+    justify-content: stretch;
     row-gap: 10px;
   }
   .page-gallery #gallery-project-talk-callout .hero-actions > .cta-back-home {
-    grid-column: 2;
-    justify-self: start;
+    grid-column: auto;
+    justify-self: stretch;
   }
   #welcome-video-section .video-play-icon {
     width: clamp(58px, 17vw, 72px);
