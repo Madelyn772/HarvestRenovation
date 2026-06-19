@@ -1854,6 +1854,11 @@ footer.site-footer {
 
 @media (max-width: 768px) {
   .hero-media { min-height: 400px; }
+  #welcome-video-section .video-play-icon {
+    width: clamp(62px, 18vw, 76px);
+    height: clamp(62px, 18vw, 76px);
+    font-size: clamp(24px, 7.2vw, 32px);
+  }
   .talk-inline-popup,
   .page-gallery .talk-inline-popup {
     width: min(280px, 90vw);
@@ -1958,6 +1963,22 @@ footer.site-footer {
 }
 
 @media (max-width: 760px) {
+  .page-gallery #gallery-project-talk-callout .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: start;
+    column-gap: 12px;
+    row-gap: 10px;
+  }
+  .page-gallery #gallery-project-talk-callout .hero-actions > .cta-back-home {
+    grid-column: 2;
+    justify-self: start;
+  }
+  #welcome-video-section .video-play-icon {
+    width: clamp(58px, 17vw, 72px);
+    height: clamp(58px, 17vw, 72px);
+    font-size: clamp(22px, 6.8vw, 30px);
+  }
   .callout-talk,
   .callout-talk.is-preview-open {
     justify-items: stretch;
