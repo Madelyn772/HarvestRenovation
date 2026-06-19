@@ -18,7 +18,7 @@ OG_IMAGE = BASE_URL + '/assets/1A44778A-CFC5-4E64-9116-0873704C0077.PNG'
 PAGE_META = {
     'index.html': {
         'title': 'Houston Remodeling Contractor | Kitchens, Baths & Renovations | Harvest Renovation',
-        'share_title': 'Harvest Renovation | Residential & Commercial Remodeling',
+        'share_title': 'Harvest Renovation - Residential & Commercial Remodeling',
         'description': 'Harvest Renovation is a Houston remodeling contractor serving Houston, South Houston, and surrounding communities for kitchen remodeling, bathroom remodeling, flooring, interior painting, and full home renovations.',
         'canonical': BASE_URL + '/',
     },
