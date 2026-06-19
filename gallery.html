@@ -224,13 +224,27 @@
 </div>
 </div>
 </section>
-<section>
-<div class="container callout">
+<section id="gallery-project-talk-callout">
+<div class="container callout callout-talk">
+<span class="eyebrow callout-serving-line">Serving Houston &amp; surrounding areas</span>
+<div class="callout-talk-copy">
 <div class="section-head" style="margin-bottom:0;">
-<span class="eyebrow">Serving Houston &amp; surrounding areas</span>
 <h2>Ready to talk through your project after browsing the gallery?</h2>
 <p>Call now for the fastest response, or request your estimate online and expect a reply within 1 business day.</p>
 </div>
+</div>
+<aside aria-hidden="true" class="talk-inline-popup" hidden="hidden" id="gallery-talk-inline-popup">
+<div class="talk-video-wrap">
+<video aria-label="Harvest Renovation introduction video" class="talk-video-player" id="gallery-talk-video-player" muted="" playsinline="" preload="metadata">
+<source src="assets/connect.mp4" type="video/mp4"/>
+<source src="assets/Connect.mov" type="video/quicktime"/>
+</video>
+<button aria-label="Close quick intro" class="talk-inline-close" id="gallery-talk-inline-close" type="button">Close</button>
+<button aria-label="Play introduction video" class="talk-video-overlay" id="gallery-talk-video-play" type="button">
+<span aria-hidden="true" class="talk-video-icon">▶</span>
+</button>
+</div>
+</aside>
 <div class="hero-actions" style="margin-top:18px;">
 <a aria-label="Call Harvest Renovation at (832) 944-0267" class="btn btn-primary track-phone-click" href="tel:+18329440267">Call (832) 944-0267</a>
 <a class="btn btn-secondary track-service-cta" href="estimate.html#project-request-form">Request Estimate</a>
@@ -252,6 +266,22 @@
 <figure class="lightbox-figure">
 <img alt="" id="lightbox-image" src=""/>
 <figcaption><strong id="lightbox-title"></strong><span id="lightbox-caption"></span></figcaption>
+</figure>
+</div>
+</div>
+<div aria-hidden="true" aria-label="Expanded project introduction video" class="lightbox" id="gallery-talk-video-modal" role="dialog">
+<div class="lightbox-dialog talk-video-modal-dialog">
+<div class="lightbox-topbar">
+<div><span class="eyebrow">Ready to Start Your Project?</span></div>
+<div class="lightbox-actions">
+<button aria-label="Close expanded video" class="lightbox-close" id="gallery-talk-video-modal-close" type="button">Close</button>
+</div>
+</div>
+<figure class="lightbox-figure talk-video-modal-figure">
+<video aria-label="Harvest Renovation expanded introduction video" class="talk-video-modal-player" controls="" id="gallery-talk-video-modal-player" playsinline="" preload="metadata">
+<source src="assets/connect.mp4" type="video/mp4"/>
+<source src="assets/Connect.mov" type="video/quicktime"/>
+</video>
 </figure>
 </div>
 </div>
@@ -381,6 +411,108 @@
       if (event.key === 'Escape') closeLightbox();
       if (event.key === 'ArrowLeft') showCard(currentIndex - 1);
       if (event.key === 'ArrowRight') showCard(currentIndex + 1);
+    });
+  })();
+</script>
+<script>
+  (function () {
+    var section = document.getElementById('gallery-project-talk-callout');
+    var calloutBox = section ? section.querySelector('.callout-talk') : null;
+    var popup = document.getElementById('gallery-talk-inline-popup');
+    var closeButton = document.getElementById('gallery-talk-inline-close');
+    var previewPlayer = document.getElementById('gallery-talk-video-player');
+    var playButton = document.getElementById('gallery-talk-video-play');
+    var modal = document.getElementById('gallery-talk-video-modal');
+    var modalCloseButton = document.getElementById('gallery-talk-video-modal-close');
+    var modalPlayer = document.getElementById('gallery-talk-video-modal-player');
+    if (!section || !calloutBox || !popup || !closeButton || !previewPlayer || !playButton || !modal || !modalCloseButton || !modalPlayer) return;
+
+    var hasShown = false;
+
+    function openModalFromStart() {
+      previewPlayer.pause();
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      modalPlayer.currentTime = 0;
+      modalPlayer.muted = false;
+      var playPromise = modalPlayer.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function () {});
+      }
+    }
+
+    function closeModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      modalPlayer.pause();
+      modalPlayer.currentTime = 0;
+      document.body.style.overflow = '';
+
+      if (popup.classList.contains('is-visible')) {
+        previewPlayer.currentTime = 0;
+        previewPlayer.muted = true;
+        previewPlayer.loop = true;
+        var previewPlay = previewPlayer.play();
+        if (previewPlay && typeof previewPlay.catch === 'function') {
+          previewPlay.catch(function () {});
+        }
+      }
+    }
+
+    function showPopup() {
+      if (hasShown) return;
+      hasShown = true;
+      calloutBox.classList.add('is-preview-open');
+      popup.removeAttribute('hidden');
+      popup.classList.add('is-visible');
+      popup.setAttribute('aria-hidden', 'false');
+      previewPlayer.currentTime = 0;
+      previewPlayer.loop = true;
+      previewPlayer.muted = true;
+      var playPromise = previewPlayer.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function () {});
+      }
+    }
+
+    function closePopup() {
+      popup.classList.remove('is-visible');
+      popup.setAttribute('aria-hidden', 'true');
+      previewPlayer.pause();
+      previewPlayer.currentTime = 0;
+      popup.setAttribute('hidden', 'hidden');
+      calloutBox.classList.remove('is-preview-open');
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          showPopup();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.45 });
+
+    observer.observe(section);
+
+    closeButton.addEventListener('click', closePopup);
+    playButton.addEventListener('click', openModalFromStart);
+    modalCloseButton.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      if (modal.getAttribute('aria-hidden') === 'false') {
+        closeModal();
+        return;
+      }
+      if (popup.getAttribute('aria-hidden') === 'false') {
+        closePopup();
+      }
     });
   })();
 </script>

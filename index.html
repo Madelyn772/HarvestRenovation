@@ -54,7 +54,7 @@
 <section class="hero">
 <div class="container hero-wrap">
 <div class="panel hero-copy">
-<span class="eyebrow index-serving-eyebrow">Serving Houston &amp; surrounding areas</span>
+<span class="eyebrow">Serving Houston &amp; surrounding areas</span>
 <h1>Houston Remodeling Contractor for Residential &amp; Commercial Renovations</h1>
 <p class="lead">Harvest Renovation helps homeowners, business owners, property managers, and investors across Houston and surrounding areas improve the spaces they use every day. From kitchen and bathroom remodels to office build-outs, tenant improvements, flooring, painting, and full-scale renovations, we deliver quality craftsmanship, clear communication, and dependable service from estimate to final walkthrough.</p>
 <div class="hero-actions">
@@ -93,11 +93,14 @@
 <span class="eyebrow">Welcome Video</span>
 </div>
 <div class="video-frame-wrap">
-<video aria-label="Welcome video from Harvest Renovation" class="video-frame" controls="" controlslist="nodownload" id="welcome-video" playsinline="" poster="assets/welcome-video-poster.jpg" preload="none">
-<source src="assets/welcome-video.mp4" type="video/mp4"/>
+<video aria-label="Welcome video from Harvest Renovation" class="video-frame" controlslist="nodownload" id="welcome-video" muted="" playsinline="" preload="metadata" autoplay="" loop="">
+<source src="assets/welcome-video-original.mp4" type="video/mp4"/>
 </video>
+<button aria-label="Play welcome video with sound" class="video-play-overlay" id="welcome-video-play" type="button">
+<span aria-hidden="true" class="video-play-icon">▶</span>
+</button>
 </div>
-<p class="video-note">Watch a quick introduction from Harvest Renovation using the built-in play controls.</p>
+<p class="video-note">This preview plays muted by default. Select play to restart from the beginning with audio.</p>
 </div>
 </section>
 <section>
@@ -179,13 +182,27 @@
 </div>
 </div>
 </section>
-<section>
-<div class="container callout">
+<section id="project-talk-callout">
+<div class="container callout callout-talk">
+<span class="eyebrow callout-serving-line">Serving Houston &amp; surrounding areas</span>
+<div class="callout-talk-copy">
 <div class="section-head" style="margin-bottom:0;">
-<span class="eyebrow index-serving-eyebrow">Serving Houston &amp; surrounding areas</span>
 <h2>Ready to talk about your remodeling project?</h2>
 <p>Call now for the fastest response, request your estimate online, or review our Google Maps listing before you reach out.</p>
 </div>
+</div>
+<aside aria-hidden="true" class="talk-inline-popup" hidden="hidden" id="talk-inline-popup">
+<div class="talk-video-wrap">
+<video aria-label="Harvest Renovation introduction video" class="talk-video-player" id="talk-video-player" muted="" playsinline="" preload="metadata">
+<source src="assets/connect.mp4" type="video/mp4"/>
+<source src="assets/Connect.mov" type="video/quicktime"/>
+</video>
+<button aria-label="Close quick intro" class="talk-inline-close" id="talk-inline-close" type="button">Close</button>
+<button aria-label="Play introduction video" class="talk-video-overlay" id="talk-video-play" type="button">
+<span aria-hidden="true" class="talk-video-icon">▶</span>
+</button>
+</div>
+</aside>
 <div class="hero-actions" style="margin-top:18px;">
 <a aria-label="Call Harvest Renovation at (832) 944-0267" class="btn btn-primary track-phone-click" href="tel:+18329440267">Call (832) 944-0267</a>
 <a class="btn btn-secondary track-service-cta" href="estimate.html#project-request-form">Request Estimate</a>
@@ -193,6 +210,22 @@
 </div>
 </section>
 </main>
+<div aria-hidden="true" aria-label="Expanded project introduction video" class="lightbox" id="talk-video-modal" role="dialog">
+<div class="lightbox-dialog talk-video-modal-dialog">
+<div class="lightbox-topbar">
+<div><span class="eyebrow">Ready to Start Your Project?</span></div>
+<div class="lightbox-actions">
+<button aria-label="Close expanded video" class="lightbox-close" id="talk-video-modal-close" type="button">Close</button>
+</div>
+</div>
+<figure class="lightbox-figure talk-video-modal-figure">
+<video aria-label="Harvest Renovation expanded introduction video" class="talk-video-modal-player" controls="" id="talk-video-modal-player" playsinline="" preload="metadata">
+<source src="assets/connect.mp4" type="video/mp4"/>
+<source src="assets/Connect.mov" type="video/quicktime"/>
+</video>
+</figure>
+</div>
+</div>
 <footer class="site-footer">
 <div class="container footer-row">
 <div>© Harvest Renovation • Houston Remodeling &amp; General Contracting</div>
@@ -278,6 +311,179 @@
         if (href.indexOf('place_id:') > -1 || href.indexOf('google.com/maps') > -1) {
           pushTrackingEvent('maps_click', { link_text: linkText, page_path: window.location.pathname });
         }
+      });
+    })();
+  </script>
+<script>
+    (function () {
+      var video = document.getElementById('welcome-video');
+      var playButton = document.getElementById('welcome-video-play');
+      if (!video || !playButton) return;
+
+      function syncOverlay() {
+        var shouldShow = video.muted && !video.controls;
+        playButton.classList.toggle('is-hidden', !shouldShow);
+      }
+
+      function startWithSound() {
+        video.controls = true;
+        video.muted = false;
+        video.loop = false;
+        video.currentTime = 0;
+
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function () {
+            video.controls = false;
+            video.muted = true;
+            video.loop = true;
+          }).finally(syncOverlay);
+        } else {
+          syncOverlay();
+        }
+      }
+
+      video.controls = false;
+      video.muted = true;
+      video.loop = true;
+      syncOverlay();
+
+      playButton.addEventListener('click', startWithSound);
+
+      video.addEventListener('ended', function () {
+        video.controls = false;
+        video.muted = true;
+        video.loop = true;
+        video.currentTime = 0;
+        video.play();
+        syncOverlay();
+      });
+    })();
+  </script>
+<script>
+    (function () {
+      var section = document.getElementById('project-talk-callout');
+  var calloutBox = section ? section.querySelector('.callout-talk') : null;
+      var popup = document.getElementById('talk-inline-popup');
+      var closeButton = document.getElementById('talk-inline-close');
+      var previewPlayer = document.getElementById('talk-video-player');
+      var playButton = document.getElementById('talk-video-play');
+      var modal = document.getElementById('talk-video-modal');
+      var modalCloseButton = document.getElementById('talk-video-modal-close');
+      var modalPlayer = document.getElementById('talk-video-modal-player');
+  if (!section || !calloutBox || !popup || !closeButton || !previewPlayer || !playButton || !modal || !modalCloseButton || !modalPlayer) return;
+
+      var hasShown = false;
+
+      function openModalFromStart() {
+        previewPlayer.pause();
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        modalPlayer.currentTime = 0;
+        modalPlayer.muted = false;
+        var playPromise = modalPlayer.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function () {});
+        }
+      }
+
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        modalPlayer.pause();
+        modalPlayer.currentTime = 0;
+        document.body.style.overflow = '';
+
+        if (popup.classList.contains('is-visible')) {
+          previewPlayer.currentTime = 0;
+          previewPlayer.muted = true;
+          previewPlayer.loop = true;
+          var previewPlay = previewPlayer.play();
+          if (previewPlay && typeof previewPlay.catch === 'function') {
+            previewPlay.catch(function () {});
+          }
+        }
+      }
+
+      function showPopup() {
+        if (hasShown) return;
+        hasShown = true;
+        calloutBox.classList.add('is-preview-open');
+        popup.removeAttribute('hidden');
+        popup.classList.add('is-visible');
+        popup.setAttribute('aria-hidden', 'false');
+        previewPlayer.currentTime = 0;
+        previewPlayer.loop = true;
+        previewPlayer.muted = true;
+        var playPromise = previewPlayer.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function () {});
+        }
+      }
+
+      function closePopup() {
+        popup.classList.remove('is-visible');
+        popup.setAttribute('aria-hidden', 'true');
+        previewPlayer.pause();
+        previewPlayer.currentTime = 0;
+        popup.setAttribute('hidden', 'hidden');
+        calloutBox.classList.remove('is-preview-open');
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            showPopup();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.45 });
+
+      observer.observe(section);
+
+      closeButton.addEventListener('click', closePopup);
+      playButton.addEventListener('click', openModalFromStart);
+      modalCloseButton.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape') return;
+        if (modal.getAttribute('aria-hidden') === 'false') {
+          closeModal();
+          return;
+        }
+        if (popup.getAttribute('aria-hidden') === 'false') {
+          closePopup();
+        }
+      });
+    })();
+  </script>
+<script>
+    (function () {
+      var videos = [
+        document.getElementById('welcome-video'),
+        document.getElementById('talk-video-player'),
+        document.getElementById('talk-video-modal-player')
+      ].filter(Boolean);
+
+      if (!videos.length) return;
+
+      function pauseOthers(activeVideo) {
+        videos.forEach(function (video) {
+          if (video !== activeVideo && !video.paused) {
+            video.pause();
+          }
+        });
+      }
+
+      videos.forEach(function (video) {
+        video.addEventListener('play', function () {
+          pauseOthers(video);
+        });
       });
     })();
   </script>
