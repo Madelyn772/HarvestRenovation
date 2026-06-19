@@ -1501,7 +1501,7 @@ footer.site-footer {
   }
   .callout-talk-copy,
   .callout-talk.is-preview-open .callout-talk-copy {
-    width: min(640px, calc(100% - 24px));
+    width: 100%;
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
@@ -1509,14 +1509,14 @@ footer.site-footer {
   }
   .callout-talk > .hero-actions {
     justify-content: flex-start;
-    width: min(640px, calc(100% - 24px));
+    width: 100%;
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
   }
   .callout-serving-line {
     justify-content: flex-start;
-    width: min(640px, calc(100% - 24px));
+    width: 100%;
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
@@ -1526,7 +1526,7 @@ footer.site-footer {
     position: static;
     top: auto;
     right: auto;
-    width: min(360px, calc(100% - 24px));
+    width: min(360px, 100%);
     max-width: 360px;
     margin: 8px auto 0;
     transform: none;
@@ -1955,7 +1955,7 @@ footer.site-footer {
   }
   .callout-talk-copy,
   .callout-talk.is-preview-open .callout-talk-copy {
-    width: calc(100% - 24px);
+    width: 100%;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -1963,20 +1963,20 @@ footer.site-footer {
   }
   .callout-talk > .hero-actions {
     justify-content: flex-start;
-    width: calc(100% - 24px);
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
   .callout-serving-line {
     justify-content: flex-start;
-    width: calc(100% - 24px);
+    width: 100%;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
   .talk-inline-popup,
   .page-gallery .talk-inline-popup {
-    width: min(340px, calc(100% - 28px));
+    width: min(340px, 100%);
     justify-self: center;
     margin: 10px auto 0;
   }
