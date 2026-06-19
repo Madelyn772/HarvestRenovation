@@ -1517,9 +1517,9 @@ footer.site-footer {
   }
   .callout-serving-line {
     justify-content: flex-start;
-    width: 100%;
-    max-width: 640px;
-    margin-left: auto;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: 0;
     margin-right: auto;
   }
   .talk-inline-popup,
@@ -1970,9 +1970,9 @@ footer.site-footer {
   }
   .callout-serving-line {
     justify-content: flex-start;
-    width: 100%;
+    width: fit-content;
     max-width: 100%;
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
   }
   .talk-inline-popup,
