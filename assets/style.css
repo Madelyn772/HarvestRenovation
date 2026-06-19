@@ -1485,6 +1485,7 @@ footer.site-footer {
   .callout-talk {
     display: grid;
     gap: 14px;
+    justify-items: stretch;
   }
   .callout-talk.is-preview-open {
     min-height: 0;
@@ -1492,14 +1493,32 @@ footer.site-footer {
   }
   .callout-talk-copy,
   .callout-talk.is-preview-open .callout-talk-copy {
-    max-width: none;
+    width: min(640px, calc(100% - 24px));
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .callout-talk > .hero-actions {
+    justify-content: flex-start;
+    width: min(640px, calc(100% - 24px));
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .callout-serving-line {
+    justify-content: flex-start;
+    width: min(640px, calc(100% - 24px));
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .talk-inline-popup,
   .page-gallery .talk-inline-popup {
     position: static;
     top: auto;
     right: auto;
-    width: 100%;
+    width: min(360px, calc(100% - 24px));
     max-width: 360px;
     margin: 8px auto 0;
     transform: none;
@@ -1628,6 +1647,39 @@ footer.site-footer {
   .footer-social-links a:first-child::before {
     content: '•';
     margin: 0 6px;
+  }
+}
+
+@media (max-width: 760px) {
+  .callout-talk,
+  .callout-talk.is-preview-open {
+    justify-items: stretch;
+  }
+  .callout-talk-copy,
+  .callout-talk.is-preview-open .callout-talk-copy {
+    width: calc(100% - 24px);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .callout-talk > .hero-actions {
+    justify-content: flex-start;
+    width: calc(100% - 24px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .callout-serving-line {
+    justify-content: flex-start;
+    width: calc(100% - 24px);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .talk-inline-popup,
+  .page-gallery .talk-inline-popup {
+    width: min(340px, calc(100% - 24px));
+    margin: 10px auto 0;
   }
 }
 
