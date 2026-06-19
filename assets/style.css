@@ -1594,7 +1594,7 @@ footer.site-footer {
     position: static;
     width: 100%;
     max-width: 360px;
-    margin: 0 auto;
+    margin: 0;
   }
   .video-section { padding: 18px; }
   .video-play-icon {
