@@ -59,6 +59,7 @@ header {
 .brand > div { line-height: 1.15; }
 .brand > div > div { font-size: 18px; letter-spacing: .01em; }
 .brand small { display:block; color:var(--muted); font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-top:4px; }
+.brand small span { display: block; }
 nav ul { list-style:none; display:flex; gap:10px; padding:0; margin:0; color:var(--muted); }
 nav a {
   display: inline-flex;
@@ -707,7 +708,7 @@ footer.site-footer {
 }
 .talk-video-overlay.is-hidden {
   opacity: 0;
-  pointer-events: auto;
+  pointer-events: none;
 }
 .talk-video-icon {
   width: clamp(62px, 5.8vw, 84px);
@@ -1784,22 +1785,22 @@ footer.site-footer {
   }
 
   #welcome-video-section {
-    max-width: 680px;
+    max-width: none;
     margin-left: auto;
     margin-right: auto;
-    padding: 12px;
+    padding: 16px;
   }
 
   #welcome-video-section .video-frame-wrap {
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   #welcome-video-section .video-note {
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   #welcome-video-section .video-play-icon {

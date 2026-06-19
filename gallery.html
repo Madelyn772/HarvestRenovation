@@ -517,6 +517,15 @@
       }
     });
 
+    previewPlayer.addEventListener('click', function (event) {
+      event.stopPropagation();
+      if (previewPlayer.paused) {
+        playInlineWithSound();
+      } else {
+        pauseInline();
+      }
+    });
+
     previewPlayer.addEventListener('ended', function () {
       previewPlayer.controls = false;
       previewPlayer.muted = true;

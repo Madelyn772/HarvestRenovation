@@ -216,7 +216,6 @@
 <button aria-label="Play introduction video" class="talk-video-overlay" id="talk-video-play" type="button">
 <span aria-hidden="true" class="talk-video-icon">▶</span>
 </button>
-<button aria-label="Pause introduction video" class="talk-video-pause" id="talk-video-pause" type="button">Pause</button>
 </div>
 </aside>
 <div class="hero-actions" style="margin-top:18px;">
@@ -349,6 +348,7 @@
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         modalPlayer.currentTime = 0;
+        modalPlayer.loop = false;
         modalPlayer.muted = false;
 
         var playPromise = modalPlayer.play();
@@ -411,6 +411,7 @@
         const overlay = wrap.querySelector(".video-play-overlay");
 
         if (!video || !overlay) return;
+        if (overlay.id === "welcome-video-play") return;
 
         overlay.addEventListener("click", () => {
           if (video.paused) {
@@ -427,47 +428,75 @@
       document.querySelectorAll(".talk-video-wrap").forEach((wrap) => {
         const video = wrap.querySelector("video");
         const overlay = wrap.querySelector(".talk-video-overlay");
-        const pauseButton = wrap.querySelector(".talk-video-pause");
+        const icon = overlay ? overlay.querySelector(".talk-video-icon") : null;
 
-        if (!video || !overlay || !pauseButton) return;
+        if (!video || !overlay) return;
 
-        function syncControls() {
-          var isPlaying = !video.paused && !video.ended;
-          overlay.classList.toggle("is-hidden", isPlaying);
-          pauseButton.classList.toggle("is-visible", isPlaying);
-          pauseButton.setAttribute("aria-hidden", isPlaying ? "false" : "true");
+        function setOverlayState(mode) {
+          if (!icon) return;
+          if (mode === "pause") {
+            icon.textContent = "❚❚";
+            overlay.setAttribute("aria-label", "Resume introduction video");
+          } else {
+            icon.textContent = "▶";
+            overlay.setAttribute("aria-label", "Play introduction video with sound");
+          }
         }
 
-        overlay.addEventListener("click", () => {
-          if (!video.paused) {
-            return;
-          }
-
+        function playInlineWithSound() {
           video.loop = false;
           video.muted = false;
-          video.play();
-        });
+          overlay.classList.add("is-hidden");
+          setOverlayState("play");
 
-        pauseButton.addEventListener("click", () => {
-          if (!video.paused) {
-            video.pause();
+          var playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(function () {
+              video.controls = false;
+              video.muted = true;
+              video.loop = true;
+              overlay.classList.remove("is-hidden");
+            });
+          }
+        }
+
+        function pauseInline() {
+          video.pause();
+          overlay.classList.remove("is-hidden");
+          setOverlayState("pause");
+        }
+
+        overlay.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (!overlay.classList.contains("is-hidden")) {
+            playInlineWithSound();
           }
         });
 
-        video.addEventListener("click", () => {
+        video.addEventListener("click", (event) => {
+          event.stopPropagation();
           if (video.paused) {
-            video.loop = false;
-            video.muted = false;
-            video.play();
+            playInlineWithSound();
           } else {
-            video.pause();
+            pauseInline();
           }
         });
 
-        video.addEventListener("play", syncControls);
-        video.addEventListener("pause", syncControls);
-        video.addEventListener("ended", syncControls);
-        syncControls();
+        video.addEventListener("ended", () => {
+          video.controls = false;
+          video.muted = true;
+          video.loop = true;
+          video.currentTime = 0;
+          overlay.classList.remove("is-hidden");
+          setOverlayState("play");
+          var previewPlay = video.play();
+          if (previewPlay && typeof previewPlay.catch === "function") {
+            previewPlay.catch(function () {});
+          }
+        });
+
+        setOverlayState("play");
       });
 
       // Handle CTA popup visibility and close button
@@ -476,6 +505,7 @@
       var popup = document.getElementById('talk-inline-popup');
       var closeButton = document.getElementById('talk-inline-close');
       var previewPlayer = document.getElementById('talk-video-player');
+      var previewPlayButton = document.getElementById('talk-video-play');
 
       if (section && calloutBox && popup && closeButton && previewPlayer) {
         var hasShown = false;
@@ -491,6 +521,12 @@
           previewPlayer.controls = false;
           previewPlayer.loop = true;
           previewPlayer.muted = true;
+          if (previewPlayButton) {
+            previewPlayButton.classList.remove('is-hidden');
+            previewPlayButton.setAttribute('aria-label', 'Play introduction video with sound');
+            var showIcon = previewPlayButton.querySelector('.talk-video-icon');
+            if (showIcon) showIcon.textContent = '▶';
+          }
           var playPromise = previewPlayer.play();
           if (playPromise && typeof playPromise.catch === 'function') {
             playPromise.catch(function () {});
@@ -505,6 +541,12 @@
           previewPlayer.controls = false;
           previewPlayer.muted = true;
           previewPlayer.loop = true;
+          if (previewPlayButton) {
+            previewPlayButton.classList.remove('is-hidden');
+            previewPlayButton.setAttribute('aria-label', 'Play introduction video with sound');
+            var hideIcon = previewPlayButton.querySelector('.talk-video-icon');
+            if (hideIcon) hideIcon.textContent = '▶';
+          }
           popup.setAttribute('hidden', 'hidden');
           calloutBox.classList.remove('is-preview-open');
         }
