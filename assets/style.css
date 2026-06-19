@@ -1977,7 +1977,8 @@ footer.site-footer {
   }
   .talk-inline-popup,
   .page-gallery .talk-inline-popup {
-    width: min(340px, 100%);
+    width: min(340px, calc(100% - 16px));
+    max-width: calc(100% - 16px);
     justify-self: center;
     margin: 10px auto 0;
   }
