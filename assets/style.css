@@ -1498,7 +1498,7 @@ footer.site-footer {
   }
   .callout-talk.is-preview-open {
     min-height: 0;
-    padding-right: 0;
+    padding-inline: 16px;
   }
   .callout-talk-copy,
   .callout-talk.is-preview-open .callout-talk-copy {
