@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Project Gallery in Houston | Harvest Renovation</title>
 <meta content="Browse Harvest Renovation project photos in Houston, South Houston, and surrounding communities, including kitchens, bathrooms, lighting upgrades, outdoor improvements, custom details, commercial interiors, electrical work, and project-progress photos." name="description"/>
-<link href="assets/style.css?v=20260605m" rel="stylesheet"/>
+<link href="assets/style.css?v=20260618aa" rel="stylesheet"/>
 <meta content="#0d0d0d" name="theme-color"/>
 <meta content="dark" name="color-scheme"/>
 <link href="https://www.harvestrenovation.net/gallery.html" rel="canonical"/>
@@ -248,7 +248,7 @@
 <div class="hero-actions" style="margin-top:18px;">
 <a aria-label="Call Harvest Renovation at (832) 944-0267" class="btn btn-primary track-phone-click" href="tel:+18329440267">Call (832) 944-0267</a>
 <a class="btn btn-secondary track-service-cta" href="estimate.html#project-request-form">Request Estimate</a>
-<a class="btn btn-secondary" href="index.html">Back to Home</a>
+<a class="btn btn-secondary cta-back-home" href="index.html">Back to Home</a>
 </div>
 </div>
 </section>
@@ -425,13 +425,25 @@
     if (!section || !calloutBox || !popup || !closeButton || !previewPlayer || !playButton) return;
 
     var hasShown = false;
+    var icon = playButton.querySelector('.talk-video-icon');
+
+    function setOverlayState(mode) {
+      if (!icon) return;
+      if (mode === 'pause') {
+        icon.textContent = '❚❚';
+        playButton.setAttribute('aria-label', 'Resume introduction video');
+      } else {
+        icon.textContent = '▶';
+        playButton.setAttribute('aria-label', 'Play introduction video with sound');
+      }
+    }
 
     function playInlineWithSound() {
       previewPlayer.loop = false;
       previewPlayer.muted = false;
       previewPlayer.controls = false;
-      previewPlayer.currentTime = 0;
       playButton.classList.add('is-hidden');
+      setOverlayState('play');
 
       var playPromise = previewPlayer.play();
       if (playPromise && typeof playPromise.catch === 'function') {
@@ -442,6 +454,12 @@
           playButton.classList.remove('is-hidden');
         });
       }
+    }
+
+    function pauseInline() {
+      previewPlayer.pause();
+      playButton.classList.remove('is-hidden');
+      setOverlayState('pause');
     }
 
     function showPopup() {
@@ -456,6 +474,7 @@
       previewPlayer.loop = true;
       previewPlayer.muted = true;
       playButton.classList.remove('is-hidden');
+      setOverlayState('play');
       var playPromise = previewPlayer.play();
       if (playPromise && typeof playPromise.catch === 'function') {
         playPromise.catch(function () {});
@@ -471,6 +490,7 @@
       previewPlayer.muted = true;
       previewPlayer.loop = true;
       playButton.classList.remove('is-hidden');
+      setOverlayState('play');
       popup.setAttribute('hidden', 'hidden');
       calloutBox.classList.remove('is-preview-open');
     }
@@ -487,7 +507,15 @@
     observer.observe(section);
 
     closeButton.addEventListener('click', closePopup);
-    playButton.addEventListener('click', playInlineWithSound);
+    playButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (!playButton.classList.contains('is-hidden')) {
+        playInlineWithSound();
+      } else {
+        pauseInline();
+      }
+    });
 
     previewPlayer.addEventListener('ended', function () {
       previewPlayer.controls = false;
@@ -495,6 +523,7 @@
       previewPlayer.loop = true;
       previewPlayer.currentTime = 0;
       playButton.classList.remove('is-hidden');
+      setOverlayState('play');
       var previewPlay = previewPlayer.play();
       if (previewPlay && typeof previewPlay.catch === 'function') {
         previewPlay.catch(function () {});
