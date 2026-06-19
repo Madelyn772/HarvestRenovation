@@ -16,7 +16,7 @@
 <meta content="Harvest Renovation" name="twitter:title"/>
 <meta content="Harvest Renovation is a Houston remodeling contractor serving Houston, South Houston, and surrounding communities for kitchen remodeling, bathroom remodeling, flooring, interior painting, and full home renovations." name="twitter:description"/>
 <meta content="https://www.harvestrenovation.net/assets/harvest-share-preview-20260605.png" name="twitter:image"/>
-<link href="assets/style.css?v=20260618aa" rel="stylesheet"/>
+<link href="assets/style.css?v=20260618a" rel="stylesheet"/>
 <meta content="#0d0d0d" name="theme-color"/><meta content="dark" name="color-scheme"/><link href="https://www.harvestrenovation.net/" rel="canonical"/><meta content="https://www.harvestrenovation.net/" property="og:url"/><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.harvestrenovation.net/#website","url":"https://www.harvestrenovation.net/","name":"Harvest Renovation","publisher":{"@id":"https://www.harvestrenovation.net/#business"}},{"@type":"GeneralContractor","@id":"https://www.harvestrenovation.net/#business","name":"Harvest Renovation","url":"https://www.harvestrenovation.net/","telephone":"(832) 944-0267","image":["https://www.harvestrenovation.net/assets/quality-renovations-hero-polished.jpg","https://www.harvestrenovation.net/assets/full-home-open-concept.jpg","https://www.harvestrenovation.net/assets/bathroom-double-vanity.jpg"],"logo":"https://www.harvestrenovation.net/assets/harvest-logo.png","areaServed":["Houston","South Houston"],"sameAs":["https://www.facebook.com/profile.php?id=61551641154186","https://www.instagram.com/harvestrenovation/","https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0"],"address":{"@type":"PostalAddress","addressLocality":"Houston","addressRegion":"TX","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:00"}]}]}</script></head>
 <body><a class="skip-link" href="#main-content">Skip to main content</a>
 <header>
@@ -25,7 +25,7 @@
 <img alt="Harvest Renovation logo" src="assets/harvest-logo.png"/>
 <div>
 <div>Harvest Renovation</div>
-<small>Houston Remodeling &amp;<br/>General Contracting</small>
+<small><span>Houston Remodeling &amp;</span><span>General Contracting</span></small>
 </div>
 </a>
 <nav>
@@ -88,7 +88,7 @@
 </div>
 </section>
 <section>
-<div class="container video-section panel card">
+<div class="container video-section panel card" id="welcome-video-section">
 <div class="section-head" style="margin-bottom:16px;">
 <span class="eyebrow">Meet Harvest Renovation</span>
 </div>
@@ -216,6 +216,7 @@
 <button aria-label="Play introduction video" class="talk-video-overlay" id="talk-video-play" type="button">
 <span aria-hidden="true" class="talk-video-icon">▶</span>
 </button>
+<button aria-label="Pause introduction video" class="talk-video-pause" id="talk-video-pause" type="button">Pause</button>
 </div>
 </aside>
 <div class="hero-actions" style="margin-top:18px;">
@@ -243,7 +244,7 @@
 </div>
 <footer class="site-footer">
 <div class="container footer-row">
-<div>© Harvest Renovation • Houston Remodeling &amp; General Contracting</div>
+<div>© Harvest Renovation • <span>Houston Remodeling &amp;</span><span>General Contracting</span></div>
 <div class="footer-links"><div class="footer-primary-links"><a href="index.html">Home</a> <a class="track-maps-click" href="https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0">Reviews</a></div><div class="footer-social-links"><a href="https://www.facebook.com/profile.php?id=61551641154186">Facebook</a> <a href="https://www.instagram.com/harvestrenovation/">Instagram</a></div></div>
 </div>
 </footer>
@@ -404,97 +405,129 @@
   </script>
 <script>
     (function () {
+      // Handle all video-frame-wrap videos (first video)
+      document.querySelectorAll(".video-frame-wrap").forEach((wrap) => {
+        const video = wrap.querySelector("video");
+        const overlay = wrap.querySelector(".video-play-overlay");
+
+        if (!video || !overlay) return;
+
+        overlay.addEventListener("click", () => {
+          if (video.paused) {
+            video.play();
+            overlay.classList.add("is-hidden");
+          } else {
+            video.pause();
+            overlay.classList.remove("is-hidden");
+          }
+        });
+      });
+
+      // Handle talk-video-wrap videos (CTA section)
+      document.querySelectorAll(".talk-video-wrap").forEach((wrap) => {
+        const video = wrap.querySelector("video");
+        const overlay = wrap.querySelector(".talk-video-overlay");
+        const pauseButton = wrap.querySelector(".talk-video-pause");
+
+        if (!video || !overlay || !pauseButton) return;
+
+        function syncControls() {
+          var isPlaying = !video.paused && !video.ended;
+          overlay.classList.toggle("is-hidden", isPlaying);
+          pauseButton.classList.toggle("is-visible", isPlaying);
+          pauseButton.setAttribute("aria-hidden", isPlaying ? "false" : "true");
+        }
+
+        overlay.addEventListener("click", () => {
+          if (!video.paused) {
+            return;
+          }
+
+          video.loop = false;
+          video.muted = false;
+          video.play();
+        });
+
+        pauseButton.addEventListener("click", () => {
+          if (!video.paused) {
+            video.pause();
+          }
+        });
+
+        video.addEventListener("click", () => {
+          if (video.paused) {
+            video.loop = false;
+            video.muted = false;
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+
+        video.addEventListener("play", syncControls);
+        video.addEventListener("pause", syncControls);
+        video.addEventListener("ended", syncControls);
+        syncControls();
+      });
+
+      // Handle CTA popup visibility and close button
       var section = document.getElementById('project-talk-callout');
-  var calloutBox = section ? section.querySelector('.callout-talk') : null;
+      var calloutBox = section ? section.querySelector('.callout-talk') : null;
       var popup = document.getElementById('talk-inline-popup');
       var closeButton = document.getElementById('talk-inline-close');
       var previewPlayer = document.getElementById('talk-video-player');
-      var playButton = document.getElementById('talk-video-play');
-  if (!section || !calloutBox || !popup || !closeButton || !previewPlayer || !playButton) return;
 
-      var hasShown = false;
+      if (section && calloutBox && popup && closeButton && previewPlayer) {
+        var hasShown = false;
 
-      function playInlineWithSound() {
-        previewPlayer.loop = false;
-        previewPlayer.muted = false;
-        previewPlayer.controls = false;
-        previewPlayer.currentTime = 0;
-        playButton.classList.add('is-hidden');
+        function showPopup() {
+          if (hasShown) return;
+          hasShown = true;
+          calloutBox.classList.add('is-preview-open');
+          popup.removeAttribute('hidden');
+          popup.classList.add('is-visible');
+          popup.setAttribute('aria-hidden', 'false');
+          previewPlayer.currentTime = 0;
+          previewPlayer.controls = false;
+          previewPlayer.loop = true;
+          previewPlayer.muted = true;
+          var playPromise = previewPlayer.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {});
+          }
+        }
 
-        var playPromise = previewPlayer.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(function () {
-            previewPlayer.controls = false;
-            previewPlayer.muted = true;
-            previewPlayer.loop = true;
-            playButton.classList.remove('is-hidden');
+        function closePopup() {
+          popup.classList.remove('is-visible');
+          popup.setAttribute('aria-hidden', 'true');
+          previewPlayer.pause();
+          previewPlayer.currentTime = 0;
+          previewPlayer.controls = false;
+          previewPlayer.muted = true;
+          previewPlayer.loop = true;
+          popup.setAttribute('hidden', 'hidden');
+          calloutBox.classList.remove('is-preview-open');
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              showPopup();
+              observer.disconnect();
+            }
           });
-        }
-      }
+        }, { threshold: 0.45 });
 
-      function showPopup() {
-        if (hasShown) return;
-        hasShown = true;
-        calloutBox.classList.add('is-preview-open');
-        popup.removeAttribute('hidden');
-        popup.classList.add('is-visible');
-        popup.setAttribute('aria-hidden', 'false');
-        previewPlayer.currentTime = 0;
-        previewPlayer.controls = false;
-        previewPlayer.loop = true;
-        previewPlayer.muted = true;
-        playButton.classList.remove('is-hidden');
-        var playPromise = previewPlayer.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(function () {});
-        }
-      }
+        observer.observe(section);
+        closeButton.addEventListener('click', closePopup);
 
-      function closePopup() {
-        popup.classList.remove('is-visible');
-        popup.setAttribute('aria-hidden', 'true');
-        previewPlayer.pause();
-        previewPlayer.currentTime = 0;
-        previewPlayer.controls = false;
-        previewPlayer.muted = true;
-        previewPlayer.loop = true;
-        playButton.classList.remove('is-hidden');
-        popup.setAttribute('hidden', 'hidden');
-        calloutBox.classList.remove('is-preview-open');
-      }
-
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            showPopup();
-            observer.disconnect();
+        document.addEventListener('keydown', function (event) {
+          if (event.key !== 'Escape') return;
+          if (popup.getAttribute('aria-hidden') === 'false') {
+            closePopup();
           }
         });
-      }, { threshold: 0.45 });
-
-      observer.observe(section);
-
-      closeButton.addEventListener('click', closePopup);
-      playButton.addEventListener('click', playInlineWithSound);
-
-      previewPlayer.addEventListener('ended', function () {
-        previewPlayer.controls = false;
-        previewPlayer.muted = true;
-        previewPlayer.loop = true;
-        previewPlayer.currentTime = 0;
-        playButton.classList.remove('is-hidden');
-        var previewPlay = previewPlayer.play();
-        if (previewPlay && typeof previewPlay.catch === 'function') {
-          previewPlay.catch(function () {});
-        }
-      });
-
-      document.addEventListener('keydown', function (event) {
-        if (event.key !== 'Escape') return;
-        if (popup.getAttribute('aria-hidden') === 'false') {
-          closePopup();
-        }
-      });
+      }
     })();
   </script>
 <script>
