@@ -1532,10 +1532,13 @@ footer.site-footer {
   .callout-talk.is-preview-open {
     position: relative;
     min-height: 0;
-    padding-right: 400px;
+    padding-right: 0;
   }
   .callout-talk.is-preview-open .callout-talk-copy {
-    max-width: none;
+    max-width: calc(100% - 400px);
+  }
+  .callout-talk.is-preview-open > .hero-actions {
+    max-width: calc(100% - 400px);
   }
   .talk-inline-popup {
     position: absolute;
@@ -1593,7 +1596,7 @@ footer.site-footer {
   }
   .talk-video-player {
     width: 100%;
-    max-height: 42vh;
+    max-height: 46vh;
   }
   .talk-video-modal-player {
     max-height: 72vh;
@@ -1678,7 +1681,8 @@ footer.site-footer {
   }
   .talk-inline-popup,
   .page-gallery .talk-inline-popup {
-    width: min(340px, calc(100% - 24px));
+    width: min(360px, calc(100% - 24px));
+    justify-self: center;
     margin: 10px auto 0;
   }
 }
