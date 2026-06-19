@@ -13,7 +13,7 @@ REVIEWS_URL = MAPS_URL
 FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61551641154186'
 INSTAGRAM_URL = 'https://www.instagram.com/harvestrenovation/'
 LOGO_URL = BASE_URL + '/assets/harvest-logo.png'
-OG_IMAGE = BASE_URL + '/assets/harvest-share-preview-20260605.png'
+OG_IMAGE = BASE_URL + '/assets/1A44778A-CFC5-4E64-9116-0873704C0077.PNG'
 
 PAGE_META = {
     'index.html': {
