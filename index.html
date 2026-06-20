@@ -501,7 +501,7 @@
 
         video.addEventListener("click", (event) => {
           event.stopPropagation();
-          if (video.paused) {
+          if (video.paused || video.muted || video.loop || !overlay.classList.contains("is-hidden")) {
             playInlineWithSound();
           } else {
             pauseInline();

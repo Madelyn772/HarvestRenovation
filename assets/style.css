@@ -1888,6 +1888,10 @@ footer.site-footer {
     width: min(280px, 90vw);
     max-width: 280px;
   }
+  .talk-video-overlay {
+    opacity: 0;
+    pointer-events: none;
+  }
   .talk-inline-close {
     top: 8px;
     right: 8px;
