@@ -93,7 +93,7 @@
 <span class="eyebrow">Meet Harvest Renovation</span>
 </div>
 <div class="video-frame-wrap">
-<video aria-label="Meet Harvest Renovation video" class="video-frame" controlslist="nodownload" id="welcome-video" muted="" playsinline="" webkit-playsinline="" preload="metadata" autoplay="" loop="" poster="assets/welcome-video-poster.jpg">
+<video aria-label="Meet Harvest Renovation video" class="video-frame" controlslist="nodownload" id="welcome-video" muted="" playsinline="" webkit-playsinline="" preload="auto" autoplay="" loop="" poster="assets/welcome-video-poster.jpg">
 <source src="assets/welcome-video-original.mp4" type="video/mp4"/>
 </video>
 <button aria-label="Play Meet Harvest Renovation video with sound" class="video-play-overlay" hidden id="welcome-video-play" type="button">
@@ -352,6 +352,7 @@
         video.setAttribute('muted', '');
         video.setAttribute('playsinline', '');
         video.setAttribute('webkit-playsinline', '');
+        video.load();
 
         var playPromise = video.play();
         if (playPromise && typeof playPromise.catch === 'function') {

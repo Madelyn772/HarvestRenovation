@@ -819,6 +819,11 @@ footer.site-footer {
   #welcome-video-play {
     display: none !important;
   }
+  #welcome-video::-webkit-media-controls-start-playback-button,
+  #welcome-video::-webkit-media-controls-play-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
 }
 @media (max-width: 1080px) {
   .hero-wrap, .subgrid, .grid-2 { grid-template-columns: 1fr; }
