@@ -1865,8 +1865,18 @@ footer.site-footer {
   #welcome-video-section .video-play-icon {
     width: clamp(62px, 18vw, 76px);
     height: clamp(62px, 18vw, 76px);
-    font-size: clamp(22px, 6.6vw, 30px);
-    padding-left: 3px;
+    font-size: 0;
+    padding-left: 0;
+    position: relative;
+  }
+  #welcome-video-section .video-play-icon::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid #ffffff;
+    transform: translateX(2px);
   }
   .talk-inline-popup,
   .page-gallery .talk-inline-popup {
@@ -1985,8 +1995,14 @@ footer.site-footer {
   #welcome-video-section .video-play-icon {
     width: clamp(58px, 17vw, 72px);
     height: clamp(58px, 17vw, 72px);
-    font-size: clamp(20px, 6.2vw, 28px);
-    padding-left: 2px;
+    font-size: 0;
+    padding-left: 0;
+  }
+  #welcome-video-section .video-play-icon::before {
+    border-top-width: 9px;
+    border-bottom-width: 9px;
+    border-left-width: 14px;
+    transform: translateX(1px);
   }
   .callout-talk,
   .callout-talk.is-preview-open {
