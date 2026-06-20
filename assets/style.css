@@ -816,6 +816,9 @@ footer.site-footer {
     font-size: 30px;
     padding-left: 4px;
   }
+  #welcome-video-play {
+    display: none !important;
+  }
 }
 @media (max-width: 1080px) {
   .hero-wrap, .subgrid, .grid-2 { grid-template-columns: 1fr; }
