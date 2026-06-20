@@ -711,15 +711,15 @@ footer.site-footer {
   pointer-events: none;
 }
 .talk-video-icon {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 999px;
   display: grid;
   place-items: center;
   border: 2px solid rgba(255,255,255,0.8);
   background: rgba(0,0,0,0.62);
   color: #fff;
-  font-size: 28px;
+  font-size: 32px;
   line-height: 1;
   padding-left: 4px;
   box-shadow: 0 18px 36px rgba(0,0,0,0.4);
@@ -802,18 +802,18 @@ footer.site-footer {
   font-size: 13px;
 }
 #welcome-video-section .video-play-icon {
-  width: 88px;
-  height: 88px;
+  width: 104px;
+  height: 104px;
   aspect-ratio: 1 / 1;
-  font-size: 48px;
+  font-size: 56px;
   padding-left: 6px;
 }
 @media (max-width: 768px) {
   #welcome-video-section .video-play-icon {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     aspect-ratio: 1 / 1;
-    font-size: 30px;
+    font-size: 34px;
     padding-left: 4px;
   }
   #welcome-video::-webkit-media-controls-start-playback-button,
@@ -1888,8 +1888,20 @@ footer.site-footer {
     width: min(280px, 90vw);
     max-width: 280px;
   }
+  .talk-inline-close {
+    top: 8px;
+    right: 8px;
+    min-height: 30px;
+    padding: 5px 10px;
+    font-size: 13px;
+  }
   .talk-video-player {
     max-height: 34vh;
+  }
+  .talk-video-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
   }
   .float-card h3 {
     font-size: 16px;
