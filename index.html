@@ -93,7 +93,7 @@
 <span class="eyebrow">Meet Harvest Renovation</span>
 </div>
 <div class="video-frame-wrap">
-<video aria-label="Meet Harvest Renovation video" class="video-frame" controlslist="nodownload" id="welcome-video" muted="" playsinline="" preload="metadata" autoplay="" loop="" poster="assets/welcome-video-poster.jpg">
+<video aria-label="Meet Harvest Renovation video" class="video-frame" controlslist="nodownload" id="welcome-video" muted="" playsinline="" webkit-playsinline="" preload="metadata" autoplay="" loop="" poster="assets/welcome-video-poster.jpg">
 <source src="assets/welcome-video-original.mp4" type="video/mp4"/>
 </video>
 <button aria-label="Play Meet Harvest Renovation video with sound" class="video-play-overlay" hidden id="welcome-video-play" type="button">
@@ -343,6 +343,27 @@
         playButton.classList.toggle('is-hidden', !shouldShow);
       }
 
+      function startMutedPreview() {
+        video.controls = false;
+        video.defaultMuted = true;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function () {
+            var retryPromise = video.play();
+            if (retryPromise && typeof retryPromise.catch === 'function') {
+              retryPromise.catch(function () {});
+            }
+          });
+        }
+      }
+
       function startWithSound() {
         video.pause();
         modal.setAttribute('aria-hidden', 'false');
@@ -373,13 +394,9 @@
         syncOverlay();
       }
 
-      video.controls = false;
-      video.muted = true;
-      video.loop = true;
-      var autoplayPromise = video.play();
-      if (autoplayPromise && typeof autoplayPromise.catch === 'function') {
-        autoplayPromise.catch(function () {});
-      }
+      startMutedPreview();
+      video.addEventListener('loadedmetadata', startMutedPreview, { once: true });
+      video.addEventListener('canplay', startMutedPreview, { once: true });
       syncOverlay();
 
       if (window.matchMedia('(max-width: 768px)').matches) {
