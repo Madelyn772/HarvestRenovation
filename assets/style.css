@@ -755,8 +755,14 @@ footer.site-footer {
 .video-play-overlay {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.44));
   cursor: pointer;
@@ -795,6 +801,18 @@ footer.site-footer {
   #welcome-video-section .video-play-icon {
     width: 72px;
     height: 72px;
+  }
+  #welcome-video-section .video-frame-wrap {
+    position: relative;
+    aspect-ratio: 16 / 9;
+  }
+  #welcome-video-section .video-play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
   }
 }
 @media (max-width: 1080px) {
