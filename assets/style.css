@@ -1863,20 +1863,15 @@ footer.site-footer {
 @media (max-width: 768px) {
   .hero-media { min-height: 400px; }
   #welcome-video-section .video-play-icon {
-    width: clamp(62px, 18vw, 76px);
-    height: clamp(62px, 18vw, 76px);
-    font-size: 0;
-    padding-left: 0;
-    position: relative;
-  }
-  #welcome-video-section .video-play-icon::before {
-    content: '';
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 16px solid #ffffff;
-    transform: translateX(2px);
+    width: clamp(58px, 17vw, 74px);
+    height: clamp(58px, 17vw, 74px);
+    border: 2px solid rgba(255,255,255,0.8);
+    background: rgba(0,0,0,0.62);
+    color: #fff;
+    font-size: clamp(24px, 7.2vw, 34px);
+    line-height: 1;
+    padding-left: 4px;
+    box-shadow: 0 18px 36px rgba(0,0,0,0.4);
   }
   .talk-inline-popup,
   .page-gallery .talk-inline-popup {
@@ -1991,18 +1986,6 @@ footer.site-footer {
   .page-gallery #gallery-project-talk-callout .hero-actions > .cta-back-home {
     grid-column: auto;
     justify-self: auto;
-  }
-  #welcome-video-section .video-play-icon {
-    width: clamp(58px, 17vw, 72px);
-    height: clamp(58px, 17vw, 72px);
-    font-size: 0;
-    padding-left: 0;
-  }
-  #welcome-video-section .video-play-icon::before {
-    border-top-width: 9px;
-    border-bottom-width: 9px;
-    border-left-width: 14px;
-    transform: translateX(1px);
   }
   .callout-talk,
   .callout-talk.is-preview-open {
