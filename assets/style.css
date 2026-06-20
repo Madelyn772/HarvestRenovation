@@ -788,29 +788,18 @@ footer.site-footer {
   width: clamp(92px, 12vw, 132px);
   height: clamp(92px, 12vw, 132px);
   aspect-ratio: 1 / 1;
-  border-radius: 50%;
+  border-radius: 999px;
   box-sizing: border-box;
-  position: relative;
-  display: block;
+  display: grid;
+  place-items: center;
   overflow: hidden;
   border: 2px solid rgba(255,255,255,0.78);
   background: rgba(0,0,0,0.62);
   color: #ffffff;
-  font-size: clamp(42px, 5.2vw, 58px);
+  font-size: clamp(40px, 5vw, 56px);
   line-height: 1;
-  padding: 0;
+  padding-left: 6px;
   box-shadow: 0 18px 34px rgba(0,0,0,0.36);
-}
-.video-play-icon::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 36%;
-  height: 40%;
-  background: #fff;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-  transform: translate(-42%, -50%);
 }
 .video-note {
   margin-top: 10px;
@@ -821,15 +810,16 @@ footer.site-footer {
   width: 88px;
   height: 88px;
   aspect-ratio: 1 / 1;
-  font-size: 0;
-  padding-left: 0;
-  transform: translateZ(0);
+  font-size: 48px;
+  padding-left: 6px;
 }
 @media (max-width: 768px) {
   #welcome-video-section .video-play-icon {
     width: 72px;
     height: 72px;
     aspect-ratio: 1 / 1;
+    font-size: 40px;
+    padding-left: 5px;
   }
 }
 @media (max-width: 1080px) {
