@@ -382,6 +382,11 @@
       }
       syncOverlay();
 
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        playButton.remove();
+        return;
+      }
+
       playButton.addEventListener('click', startWithSound);
       modalCloseButton.addEventListener('click', closeModal);
 
