@@ -402,12 +402,7 @@
       syncOverlay();
 
       if (videoNote) {
-        videoNote.hidden = window.matchMedia('(max-width: 768px)').matches;
-      }
-
-      if (window.matchMedia('(max-width: 768px)').matches) {
-        playButton.hidden = true;
-        return;
+        videoNote.hidden = false;
       }
 
       playButton.hidden = false;
