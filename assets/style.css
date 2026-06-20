@@ -1469,6 +1469,14 @@ footer.site-footer {
 }
 
 @media (max-width: 1100px) and (orientation: landscape) {
+  .callout-talk > .hero-actions {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .callout-talk > .hero-actions .btn {
+    padding: 11px 14px;
+    font-size: 13px;
+  }
   .page-estimate .scope-switch {
     background: rgba(216,168,95,0.12);
     border-color: rgba(216,168,95,0.34);
@@ -1857,7 +1865,8 @@ footer.site-footer {
   #welcome-video-section .video-play-icon {
     width: clamp(62px, 18vw, 76px);
     height: clamp(62px, 18vw, 76px);
-    font-size: clamp(24px, 7.2vw, 32px);
+    font-size: clamp(22px, 6.6vw, 30px);
+    padding-left: 3px;
   }
   .talk-inline-popup,
   .page-gallery .talk-inline-popup {
@@ -1976,7 +1985,8 @@ footer.site-footer {
   #welcome-video-section .video-play-icon {
     width: clamp(58px, 17vw, 72px);
     height: clamp(58px, 17vw, 72px);
-    font-size: clamp(22px, 6.8vw, 30px);
+    font-size: clamp(20px, 6.2vw, 28px);
+    padding-left: 2px;
   }
   .callout-talk,
   .callout-talk.is-preview-open {
