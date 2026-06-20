@@ -815,11 +815,11 @@ footer.site-footer {
 }
 @media (max-width: 768px) {
   #welcome-video-section .video-play-icon {
-    width: 72px;
-    height: 72px;
+    width: 56px;
+    height: 56px;
     aspect-ratio: 1 / 1;
-    font-size: 40px;
-    padding-left: 5px;
+    font-size: 30px;
+    padding-left: 4px;
   }
 }
 @media (max-width: 1080px) {
