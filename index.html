@@ -208,7 +208,7 @@
 </div>
 <aside aria-hidden="true" class="talk-inline-popup" hidden="hidden" id="talk-inline-popup">
 <div class="talk-video-wrap">
-<video aria-label="Harvest Renovation introduction video" class="talk-video-player" id="talk-video-player" muted="" playsinline="" preload="metadata">
+<video aria-label="Harvest Renovation introduction video" class="talk-video-player" id="talk-video-player" muted="" playsinline="" webkit-playsinline="" preload="auto" autoplay="" loop="">
 <source src="assets/connect.mp4" type="video/mp4"/>
 <source src="assets/Connect.mov" type="video/quicktime"/>
 </video>
@@ -535,6 +535,27 @@
       if (section && calloutBox && popup && closeButton && previewPlayer) {
         var hasShown = false;
 
+        function startPreviewLoop() {
+          previewPlayer.controls = false;
+          previewPlayer.defaultMuted = true;
+          previewPlayer.muted = true;
+          previewPlayer.loop = true;
+          previewPlayer.playsInline = true;
+          previewPlayer.setAttribute('muted', '');
+          previewPlayer.setAttribute('playsinline', '');
+          previewPlayer.setAttribute('webkit-playsinline', '');
+
+          var playPromise = previewPlayer.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {
+              var retryPromise = previewPlayer.play();
+              if (retryPromise && typeof retryPromise.catch === 'function') {
+                retryPromise.catch(function () {});
+              }
+            });
+          }
+        }
+
         function showPopup() {
           if (hasShown) return;
           hasShown = true;
@@ -552,10 +573,7 @@
             var showIcon = previewPlayButton.querySelector('.talk-video-icon');
             if (showIcon) showIcon.textContent = '▶';
           }
-          var playPromise = previewPlayer.play();
-          if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(function () {});
-          }
+          startPreviewLoop();
         }
 
         function closePopup() {
@@ -587,6 +605,8 @@
 
         observer.observe(section);
         closeButton.addEventListener('click', closePopup);
+        previewPlayer.addEventListener('loadedmetadata', startPreviewLoop, { once: true });
+        previewPlayer.addEventListener('canplay', startPreviewLoop, { once: true });
 
         document.addEventListener('keydown', function (event) {
           if (event.key !== 'Escape') return;
