@@ -753,13 +753,13 @@ footer.site-footer {
   border: 0;
 }
 .video-play-overlay {
+  -webkit-appearance: none;
+  appearance: none;
   position: absolute;
-  inset: 0;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -767,6 +767,7 @@ footer.site-footer {
   background: linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.44));
   cursor: pointer;
   transition: opacity .18s ease;
+  z-index: 1;
 }
 .video-play-overlay.is-hidden {
   opacity: 0;
@@ -801,17 +802,6 @@ footer.site-footer {
   #welcome-video-section .video-play-icon {
     width: 72px;
     height: 72px;
-  }
-  #welcome-video-section .video-frame-wrap {
-    position: relative;
-  }
-  #welcome-video-section .video-play-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
   }
 }
 @media (max-width: 1080px) {
