@@ -99,16 +99,6 @@
 <button aria-label="Play Meet Harvest Renovation video with sound" class="video-play-overlay" hidden id="welcome-video-play" type="button">
 <span aria-hidden="true" class="video-play-icon">▶</span>
 </button>
-<script>
-  (function () {
-    if (window.matchMedia('(max-width: 768px)').matches) {
-      var welcomePlayButton = document.getElementById('welcome-video-play');
-      if (welcomePlayButton) {
-        welcomePlayButton.remove();
-      }
-    }
-  })();
-</script>
 </div>
 <p class="video-note">Video preview is muted. Tap play to watch with sound.</p>
 </div>
@@ -409,7 +399,11 @@
       video.addEventListener('loadedmetadata', startMutedPreview, { once: true });
       video.addEventListener('canplay', startMutedPreview, { once: true });
       syncOverlay();
-      playButton.hidden = false;
+        if (window.matchMedia('(max-width: 768px)').matches) {
+          playButton.hidden = true;
+          return;
+        }
+        playButton.hidden = false;
 
       playButton.addEventListener('click', startWithSound);
       modalCloseButton.addEventListener('click', closeModal);
