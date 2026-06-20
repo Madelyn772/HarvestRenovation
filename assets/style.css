@@ -1776,18 +1776,6 @@ footer.site-footer {
     padding: 14px;
   }
 
-  .video-play-icon {
-    width: 84px;
-    height: 84px;
-    font-size: 36px;
-  }
-
-  .talk-video-icon {
-    width: 54px;
-    height: 54px;
-    font-size: 23px;
-  }
-
   .gallery-card figcaption {
     min-height: 70px;
     font-size: 12px;
@@ -1934,22 +1922,12 @@ footer.site-footer {
     margin: 0;
   }
   .video-section { padding: 18px; }
-  .video-play-icon {
-    width: 96px;
-    height: 96px;
-    font-size: 44px;
-  }
   .talk-video-player {
     width: 100%;
     max-height: 34vh;
   }
   .talk-video-modal-player {
     max-height: 72vh;
-  }
-  .talk-video-icon {
-    width: 56px;
-    height: 56px;
-    font-size: 24px;
   }
   .footer-row {
     flex-direction: column;
