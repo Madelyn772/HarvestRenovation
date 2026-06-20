@@ -816,6 +816,9 @@ footer.site-footer {
     font-size: 30px;
     padding-left: 4px;
   }
+  #welcome-video-section .video-note {
+    display: none;
+  }
   #welcome-video-play {
     display: none !important;
   }
