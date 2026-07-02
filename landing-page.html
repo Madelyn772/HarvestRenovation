@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call Now for Fast Remodeling Help | Harvest Renovation Houston</title>
+  <meta
+    name="description"
+    content="Call Harvest Renovation for the fastest response on remodeling projects in Houston. Prefer online? Send a short request and get a reply within 1 business day."
+  />
+  <meta name="theme-color" content="#0d0d0d" />
+  <style>
+    :root{
+      --bg:#0d0d0d;
+      --bg-soft:#141414;
+      --panel:#1d1d1d;
+      --panel-2:#242424;
+      --text:#f7f2eb;
+      --muted:#c9bba8;
+      --gold:#d8a85f;
+      --gold-2:#f1c27d;
+      --green:#9fd6ab;
+      --line:rgba(255,255,255,.08);
+      --shadow:0 24px 80px rgba(0,0,0,.32);
+      --radius:28px;
+      --max:1160px;
+      --danger:#ffb0b0;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(216,168,95,.15), transparent 28%),
+        radial-gradient(circle at right center, rgba(216,168,95,.08), transparent 24%),
+        linear-gradient(180deg, #0d0d0d 0%, #101010 100%);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img,video{display:block;max-width:100%}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(calc(100% - 32px), var(--max));margin:0 auto}
+    .hide{display:none!important}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(10,10,10,.86);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+    .brand img{
+      width:52px;
+      height:52px;
+      object-fit:contain;
+      border-radius:14px;
+      padding:6px;
+      background:rgba(255,255,255,.03);
+    }
+    .brand-title{
+      font-weight:900;
+      font-size:18px;
+      letter-spacing:.01em;
+    }
+    .brand-sub{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-top:2px;
+    }
+
+    .top-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn, button.btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:50px;
+      padding:14px 20px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:900;
+      letter-spacing:.01em;
+      white-space:nowrap;
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+    .btn:hover, button.btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      color:#1d1306;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      box-shadow:0 14px 34px rgba(216,168,95,.30), inset 0 1px 0 rgba(255,255,255,.28);
+    }
+    .btn-secondary{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .btn-success{
+      color:#1d1306;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      box-shadow:0 14px 34px rgba(216,168,95,.30), inset 0 1px 0 rgba(255,255,255,.28);
+    }
+
+    .hero{
+      padding:42px 0 30px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      border-radius:999px;
+      filter:blur(2px);
+      pointer-events:none;
+      opacity:.85;
+    }
+    .hero::before{
+      width:220px;height:220px;
+      right:-60px;top:40px;
+      background:radial-gradient(circle, rgba(241,194,125,.18), transparent 65%);
+    }
+    .hero::after{
+      width:160px;height:160px;
+      left:-40px;bottom:30px;
+      background:radial-gradient(circle, rgba(159,214,171,.12), transparent 65%);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr);
+      gap:24px;
+      align-items:start;
+    }
+
+    .panel{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      box-shadow:var(--shadow);
+    }
+
+    .hero-copy{
+      padding:42px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(216,168,95,.35);
+      color:var(--gold-2);
+      background:rgba(216,168,95,.08);
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .eyebrow::before{
+      content:"";
+      width:8px;height:8px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      box-shadow:0 0 12px rgba(216,168,95,.6);
+    }
+
+    h1{
+      margin:18px 0 14px;
+      font-size:clamp(40px, 6vw, 68px);
+      line-height:.95;
+      letter-spacing:-.045em;
+      max-width:12ch;
+    }
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:18px;
+      max-width:60ch;
+    }
+
+    .fun-strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:18px 0 20px;
+    }
+    .fun-pill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--text);
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:16px 0 20px;
+    }
+
+    .proof-row{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:8px;
+    }
+    .stat{
+      padding:18px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      position:relative;
+      overflow:hidden;
+    }
+    .stat::after{
+      content:"";
+      position:absolute;
+      inset:auto -25px -30px auto;
+      width:100px;height:100px;
+      background:radial-gradient(circle, rgba(216,168,95,.14), transparent 70%);
+      pointer-events:none;
+    }
+    .stat strong{
+      display:block;
+      color:var(--gold-2);
+      font-size:20px;
+      margin-bottom:4px;
+      line-height:1.15;
+    }
+    .stat span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .form-card{
+      padding:26px;
+      position:sticky;
+      top:94px;
+    }
+    .form-card h2{
+      margin:14px 0 8px;
+      font-size:34px;
+      line-height:1.02;
+      letter-spacing:-.03em;
+    }
+    .form-copy{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .trust-mini{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+      margin:0 0 16px;
+    }
+    .mini{
+      padding:14px;
+      border-radius:18px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+    }
+    .mini strong{
+      display:block;
+      font-size:14px;
+      color:var(--gold-2);
+      margin-bottom:4px;
+    }
+    .mini span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    form{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    label{
+      display:grid;
+      gap:8px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .span-2{grid-column:span 2}
+    input,select,textarea{
+      width:100%;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.035);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus,select:focus,textarea:focus{
+      border-color:rgba(241,194,125,.72);
+      box-shadow:0 0 0 3px rgba(241,194,125,.18);
+    }
+    textarea{
+      min-height:105px;
+      resize:vertical;
+    }
+    .micro-note{
+      color:var(--muted);
+      font-size:13px;
+    }
+    .status{
+      font-size:13px;
+      color:var(--muted);
+    }
+    .status.success{color:var(--green)}
+    .status.error{color:var(--danger)}
+
+    section{
+      padding:28px 0;
+    }
+    .section-head{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom:22px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:clamp(30px,4vw,48px);
+      line-height:1;
+      letter-spacing:-.03em;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:17px;
+      max-width:68ch;
+    }
+
+    .grid-2,.grid-3,.grid-4{
+      display:grid;
+      gap:18px;
+    }
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+    .card{
+      padding:24px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      position:relative;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:22px;
+      line-height:1.1;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .list{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+    .item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      color:var(--muted);
+    }
+    .item::before{
+      content:"✓";
+      width:26px;height:26px;
+      flex:0 0 26px;
+      display:inline-grid;
+      place-items:center;
+      border-radius:999px;
+      color:#1d1306;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      font-weight:900;
+      margin-top:1px;
+    }
+
+    .offer-card{
+      display:grid;
+      gap:14px;
+      height:100%;
+    }
+    .offer-save{
+      margin:0;
+      font-size:clamp(28px,4vw,40px);
+      line-height:1;
+      letter-spacing:-.04em;
+      color:var(--text);
+    }
+    .offer-save strong{
+      color:var(--gold-2);
+      font-weight:900;
+    }
+    .offer-deadline{
+      color:var(--gold-2);
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:.03em;
+      text-transform:uppercase;
+    }
+    .offer-note{
+      color:var(--muted);
+      font-size:14px;
+    }
+    .offer-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+
+    .media-box{
+      overflow:hidden;
+      border-radius:26px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.02);
+      box-shadow:var(--shadow);
+    }
+    .media-box video{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      background:#000;
+    }
+    .media-caption{
+      padding:18px 20px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .cta-band{
+      padding:28px;
+      border-radius:28px;
+      border:1px solid rgba(216,168,95,.22);
+      background:
+        radial-gradient(circle at top right, rgba(216,168,95,.14), transparent 28%),
+        linear-gradient(135deg, rgba(216,168,95,.10), rgba(255,255,255,.03));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    .cta-band h2{
+      margin:0 0 8px;
+      font-size:clamp(28px,4vw,42px);
+      line-height:1;
+      letter-spacing:-.03em;
+    }
+    .cta-band p{
+      margin:0;
+      color:var(--muted);
+      max-width:64ch;
+    }
+
+    .review-card{
+      display:grid;
+      gap:14px;
+      height:100%;
+    }
+    .review-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .review-card cite{
+      display:block;
+      font-style:normal;
+      font-weight:800;
+      color:var(--text);
+      margin-bottom:4px;
+    }
+    .review-card small{
+      color:var(--muted);
+    }
+    .stars{
+      font-size:14px;
+      letter-spacing:.12em;
+      color:var(--gold-2);
+      white-space:nowrap;
+    }
+    .quote{
+      font-size:15px;
+      color:var(--muted);
+    }
+
+    .photo-card img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      border-radius:20px;
+      margin-bottom:14px;
+    }
+
+    .faq-card + .faq-card{margin-top:14px}
+
+    .step-num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:38px;height:38px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      color:#1d1306;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .form-legal{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .form-legal a{
+      color:var(--gold-2);
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    .footer{
+      padding:24px 0 90px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .footer-links{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .footer-links a{
+      color:var(--muted);
+    }
+    .footer-links a:hover{
+      color:var(--text);
+    }
+
+    .sticky-mobile{
+      display:none;
+      position:fixed;
+      left:12px;
+      right:12px;
+      bottom:12px;
+      z-index:120;
+      padding:10px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(12,12,12,.94);
+      backdrop-filter:blur(14px);
+      box-shadow:0 22px 50px rgba(0,0,0,.35);
+      gap:10px;
+    }
+    .sticky-mobile .btn{
+      flex:1 1 0;
+      min-width:0;
+      padding-inline:14px;
+    }
+
+    .sparkle{
+      position:absolute;
+      font-size:28px;
+      opacity:.9;
+      pointer-events:none;
+    }
+    .sparkle.one{right:22px;top:20px}
+    .sparkle.two{left:18px;bottom:16px}
+
+    @media (max-width:1024px){
+      .hero-grid,.grid-3,.grid-4{grid-template-columns:1fr}
+      .proof-row,.trust-mini{grid-template-columns:1fr}
+      .form-card{position:static}
+      h1{max-width:none}
+    }
+
+    @media (max-width:760px){
+      .topbar-inner{align-items:flex-start}
+      .top-actions{width:100%;justify-content:flex-start}
+      .grid-2,form{grid-template-columns:1fr}
+      .span-2{grid-column:span 1}
+      .hero{padding:28px 0 20px}
+      section{padding:22px 0}
+      .section-head{margin-bottom:16px}
+      .hero-copy,.form-card,.card{padding:20px}
+      .offer-actions .btn,.hero-actions .btn{width:100%}
+      .sticky-mobile{display:flex;left:10px;right:10px;bottom:10px;padding:8px}
+      .footer{padding-bottom:112px}
+      .footer-inner{align-items:flex-start}
+      h1{font-size:clamp(34px,11vw,52px)}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" aria-label="Harvest Renovation landing page">
+        <img src="https://harvest-renovation.vercel.app/assets/harvest-logo.png" alt="Harvest Renovation logo" />
+        <div>
+          <div class="brand-title">Harvest Renovation</div>
+          <div class="brand-sub">Houston Remodeling &amp; General Contracting</div>
+        </div>
+      </a>
+      <div class="top-actions">
+        <a class="btn btn-primary" href="tel:+18329440267">Call (832) 944-0267</a>
+        <a class="btn btn-secondary" href="#fast-estimate">Estimate Online</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="panel hero-copy">
+          <span class="sparkle one">✨</span>
+          <span class="eyebrow">Call now for the fastest response</span>
+          <h1>Talk to Harvest Renovation today about your project.</h1>
+          <p class="lead">
+            Need help with a kitchen, bathroom, flooring, painting, drywall, framing, commercial build-out, or larger renovation? Call now to talk through the next step.
+          </p>
+
+          <div class="fun-strip">
+            <span class="fun-pill">Call for fastest response</span>
+            <span class="fun-pill">Reply within 1 business day online</span>
+            <span class="fun-pill">Real project photos</span>
+            <span class="fun-pill">Owner-led communication</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-success" href="tel:+18329440267">Call Now</a>
+            <a class="btn btn-secondary" href="#fast-estimate">Estimate Online</a>
+          </div>
+
+          <div class="proof-row">
+            <div class="stat">
+              <strong>Call first</strong>
+              <span>Talk through your project right away.</span>
+            </div>
+            <div class="stat">
+              <strong>Fast response</strong>
+              <span>Clients mention responsiveness, professionalism, and clean work.</span>
+            </div>
+            <div class="stat">
+              <strong>Clear next steps</strong>
+              <span>For small jobs, remodels, and commercial projects.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel form-card" id="fast-estimate">
+          <span class="eyebrow">Request a Free Estimate</span>
+          <h2>Tell us about your project.</h2>
+          <p class="form-copy">
+            Call for the fastest response, or complete the form below and we’ll follow up within 1 business day.
+          </p>
+
+          <form id="lead-form" action="https://formsubmit.co/ajax/harvestrenovation@gmail.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New Ad Landing Lead - Harvest Renovation" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="source_page" value="harvest-renovation-ads-landing" />
+            <input type="hidden" name="page_url" id="page_url" value="" />
+            <input type="hidden" name="utm_source" id="utm_source" value="" />
+            <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+            <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
+            <input type="hidden" name="utm_content" id="utm_content" value="" />
+            <input type="hidden" name="utm_term" id="utm_term" value="" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hide" />
+
+            <label>
+              Full Name *
+              <input type="text" name="full_name" placeholder="John Smith" required />
+            </label>
+
+            <label>
+              Email *
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+
+            <label>
+              Phone *
+              <input type="tel" name="phone" placeholder="(832) 555-5555" required />
+            </label>
+
+            <label>
+              ZIP Code *
+              <input type="text" name="property_zip" placeholder="77587" inputmode="numeric" pattern="[0-9]{5}" required />
+            </label>
+
+            <label class="span-2">
+              Project Type *
+              <select name="project_type" required>
+                <option value="" selected disabled>Select project type</option>
+                <option>Kitchen Remodeling</option>
+                <option>Bathroom Remodeling</option>
+                <option>Whole Home Renovation</option>
+                <option>Commercial Build-Out</option>
+                <option>Tenant Improvements</option>
+                <option>Flooring</option>
+                <option>Painting</option>
+                <option>Drywall</option>
+                <option>Framing</option>
+                <option>Electrical</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label class="span-2">
+              Project Details
+              <textarea name="project_details" placeholder="What do you want done, what room or property is it, and how soon are you hoping to start?"></textarea>
+            </label>
+
+            <div class="span-2" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+              <button class="btn btn-secondary" type="submit" id="submit-btn">Send Estimate Request</button>
+              <a class="btn btn-success" href="tel:+18329440267">Call Now</a>
+            </div>
+
+            <div class="span-2 micro-note">
+              Want the fastest response? Call <strong>(832) 944-0267</strong>.
+            </div>
+
+            <div class="span-2 form-legal">
+              By submitting this form, you agree to be contacted by Harvest Renovation and acknowledge the <a href="/privacy-policy.html">Privacy Policy</a>.
+            </div>
+
+            <div class="span-2 status" id="form-status" aria-live="polite"></div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Offers by Project Type</span>
+          <h2>Pick the offer that fits your project.</h2>
+          <p>
+            Small job, larger renovation, or commercial project — call now and ask which offer fits.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card offer-card">
+            <span class="eyebrow">Small Jobs</span>
+            <h3>Flooring, painting, drywall, framing, electrical, and smaller updates</h3>
+            <p class="offer-save"><strong>10% off</strong> qualifying small jobs, up to $500</p>
+            <div class="offer-deadline">Book by <span data-deadline="month-end">June 30</span></div>
+            <p class="offer-note">Straightforward savings for smaller residential jobs.</p>
+            <div class="offer-actions">
+              <a class="btn btn-success" href="tel:+18329440267">Call Now</a>
+              <a class="btn btn-secondary" href="#fast-estimate">Estimate Online</a>
+            </div>
+          </article>
+
+          <article class="card offer-card">
+            <span class="eyebrow">Remodels &amp; Renovations</span>
+            <h3>Kitchens, bathrooms, whole-home updates, and larger renovations</h3>
+            <p class="offer-save"><strong>$1,000 off</strong> qualifying remodels</p>
+            <div class="offer-deadline">Book by <span data-deadline="month-end">June 30</span></div>
+            <p class="offer-note">A clear savings offer for bigger renovation projects.</p>
+            <div class="offer-actions">
+              <a class="btn btn-success" href="tel:+18329440267">Call Now</a>
+              <a class="btn btn-secondary" href="#fast-estimate">Estimate Online</a>
+            </div>
+          </article>
+
+          <article class="card offer-card">
+            <span class="eyebrow">Commercial Projects</span>
+            <h3>Build-outs, tenant improvements, and business spaces</h3>
+            <p class="offer-save"><strong>Free</strong> project planning session for qualifying commercial work</p>
+            <div class="offer-deadline">Book your site walk by <span data-deadline="month-end">June 30</span></div>
+            <p class="offer-note">Built for commercial projects that need quick planning and a clear next step.</p>
+            <div class="offer-actions">
+              <a class="btn btn-success" href="tel:+18329440267">Call Now</a>
+              <a class="btn btn-secondary" href="#fast-estimate">Estimate Online</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Welcome Video</span>
+          <h2>Meet the company before you call.</h2>
+          <p>
+            A quick look at the work, the quality, and the team behind Harvest Renovation.
+          </p>
+        </div>
+
+        <div class="media-box">
+          <video controls playsinline preload="none" poster="https://harvest-renovation.vercel.app/assets/quality-renovations-hero-polished.jpg">
+            <source src="https://harvest-renovation.vercel.app/assets/welcome-video-original.mp4" type="video/mp4" />
+          </video>
+          <div class="media-caption">
+            A quick introduction to Harvest Renovation and what you can expect when you reach out.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid-2">
+        <div class="card">
+          <span class="sparkle two">🎉</span>
+          <span class="eyebrow">Why People Reach Out</span>
+          <h3>Good work, clear communication, and a simple process</h3>
+          <div class="list">
+            <div class="item">Straightforward communication from the start.</div>
+            <div class="item">Quality work across kitchens, baths, flooring, and larger renovations.</div>
+            <div class="item">A cleaner, more organized experience.</div>
+            <div class="item">Clear next steps so the project feels easier to move forward.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="eyebrow">Owner Introduction</span>
+          <h3>Hear directly from Juan.</h3>
+          <p style="margin-bottom:14px;">
+            This section is reserved for a short owner introduction video that adds a personal touch and helps visitors feel confident about reaching out.
+          </p>
+
+          <div class="media-box" style="margin-bottom:16px;">
+            <img src="https://harvest-renovation.vercel.app/assets/quality-renovations-hero-polished.jpg" alt="Placeholder for Juan owner video" />
+            <div class="media-caption">
+              Owner video placeholder — replace with Juan’s introduction video when ready.
+            </div>
+          </div>
+
+          <div class="list" style="margin-top:0;">
+            <div class="item">A quick introduction to Juan and Harvest Renovation.</div>
+            <div class="item">A simple explanation of the types of projects the team takes on.</div>
+            <div class="item">A clear invitation to call or request a free estimate.</div>
+          </div>
+
+          <div class="offer-actions" style="margin-top:18px;">
+            <a class="btn btn-success" href="tel:+18329440267">Call Juan Now</a>
+            <a class="btn btn-secondary" href="#fast-estimate">Estimate Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Need answers before you decide?</h2>
+            <p>
+              Call now for the fastest response, or send the short form for a reply within 1 business day.
+            </p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a class="btn btn-success" href="tel:+18329440267">Call Now</a>
+            <a class="btn btn-secondary" href="#fast-estimate">Estimate Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Google Reviews</span>
+          <h2>What clients say</h2>
+          <p>
+            Clients mention responsiveness, professionalism, communication, and finished results.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card review-card">
+            <div class="review-top">
+              <div>
+                <cite>Kat G.</cite>
+                <small>Google review</small>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">
+              “Harvest Renovation is an excellent company to work with. They are efficient, professional, and the pricing is extremely affordable considering the technicality of the work. Juan, the owner, was very understanding, polite, and courteous …”
+            </div>
+          </article>
+
+          <article class="card review-card">
+            <div class="review-top">
+              <div>
+                <cite>Marc C.</cite>
+                <small>Google review</small>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">
+              “I used Harvest Renovation for work in my townhome. They were super responsive and did a careful, clean job.”
+            </div>
+          </article>
+
+          <article class="card review-card">
+            <div class="review-top">
+              <div>
+                <cite>Greg G.</cite>
+                <small>Google review</small>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">
+              “Juan has completed several projects at our home and we plan to hire him for several more. Professional from start to finish. He communicated with us throughout every step of the projects and we’re completely satisfied with his work and his company.”
+            </div>
+          </article>
+
+          <article class="card review-card">
+            <div class="review-top">
+              <div>
+                <cite>Edmundo G.</cite>
+                <small>Google review</small>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">
+              “Harvest Renovation has done an outstanding job. I look forward to future projects. Contact Juan for your projects.”
+            </div>
+          </article>
+
+          <article class="card review-card">
+            <div class="review-top">
+              <div>
+                <cite>Abigail M.</cite>
+                <small>Google review</small>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">
+              “I had a wonderful experience with Harvest Renovation Company. Juan was very attentive and made sure everything was done exactly the way I asked. He was professional, communicative, and took pride in his work. I absolutely love the finished results and couldn’t be happier with how everything turned out.”
+            </div>
+          </article>
+
+          <article class="card review-card">
+            <div class="review-top">
+              <div>
+                <cite>More reviews</cite>
+                <small>Google profile</small>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="quote">
+See more client feedback on Google, then reach out when you're ready.
+            </div>
+            <div>
+              <a class="btn btn-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0" target="_blank" rel="noopener">
+                View Google Reviews
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Project Photos</span>
+          <h2>See examples of our work</h2>
+          <p>
+            A few recent projects that show the quality and finishes clients can expect.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card photo-card">
+            <img
+              src="https://harvest-renovation.vercel.app/assets/quality-renovations-hero-polished.jpg"
+              alt="Finished kitchen with light gray cabinetry, bright recessed lighting, and white countertops"
+            />
+            <h3>Kitchen remodeling</h3>
+            <p>Better flow, beautiful finishes, and a space that feels better every day.</p>
+          </article>
+
+          <article class="card photo-card">
+            <img
+              src="https://harvest-renovation.vercel.app/assets/bathroom-double-vanity.jpg"
+              alt="Bathroom renovation with double vanity, white cabinetry, gold fixtures, and large mirror"
+            />
+            <h3>Bathroom upgrades</h3>
+            <p>Clean, polished updates that improve comfort and function.</p>
+          </article>
+
+          <article class="card photo-card">
+            <img
+              src="https://harvest-renovation.vercel.app/assets/commercial-cafe-buildout.jpg"
+              alt="Commercial cafe build-out with black cabinetry, pendant lighting, and a wood slat ceiling"
+            />
+            <h3>Commercial build-outs</h3>
+            <p>Polished commercial work for client-facing spaces.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid-2">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">What Happens Next</span>
+            <h2>How it works</h2>
+          </div>
+
+          <div class="grid-3">
+            <div class="card">
+              <div class="step-num">1</div>
+              <h3>You send the request</h3>
+              <p>Share your name, phone, ZIP code, and project type.</p>
+            </div>
+
+            <div class="card">
+              <div class="step-num">2</div>
+              <h3>We follow up fast</h3>
+              <p>Phone is fastest, but form requests get a reply within 1 business day.</p>
+            </div>
+
+            <div class="card">
+              <div class="step-num">3</div>
+              <h3>We talk through your project</h3>
+              <p>We’ll talk through the next step and project fit.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">FAQ</span>
+            <h2>Common questions</h2>
+          </div>
+
+          <div class="card faq-card">
+            <h3>Do I need to know every detail before I fill this out?</h3>
+            <p>No. Send the basics and we can cover the details after.</p>
+          </div>
+
+          <div class="card faq-card">
+            <h3>What if I want the fastest response?</h3>
+            <p>Call directly. It’s the quickest way to talk through your project.</p>
+          </div>
+
+          <div class="card faq-card">
+            <h3>Is this page for both residential and commercial leads?</h3>
+            <p>Yes. We work on residential and commercial projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Ready to talk through your project?</h2>
+            <p>
+              Call now for the fastest response, or send the short form for a reply within 1 business day.
+            </p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a class="btn btn-success" href="tel:+18329440267">Call Now</a>
+            <a class="btn btn-secondary" href="#fast-estimate">Estimate Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© Harvest Renovation • Houston Remodeling &amp; General Contracting</div>
+      <div class="footer-links">
+        <a href="#top">Top</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJs7OEKzydDKwRJuC_EZywum0" target="_blank" rel="noopener">Reviews</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-mobile">
+    <a class="btn btn-success" href="tel:+18329440267">Call Now</a>
+    <a class="btn btn-secondary" href="#fast-estimate">Estimate Online</a>
+  </div>
+
+  <script>
+    (function(){
+      const form = document.getElementById('lead-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const status = document.getElementById('form-status');
+
+      function setHidden(id, value){
+        const el = document.getElementById(id);
+        if(el) el.value = value || '';
+      }
+
+      function captureParams(){
+        const url = new URL(window.location.href);
+        setHidden('page_url', window.location.href);
+        setHidden('utm_source', url.searchParams.get('utm_source'));
+        setHidden('utm_medium', url.searchParams.get('utm_medium'));
+        setHidden('utm_campaign', url.searchParams.get('utm_campaign'));
+        setHidden('utm_content', url.searchParams.get('utm_content'));
+        setHidden('utm_term', url.searchParams.get('utm_term'));
+      }
+
+      captureParams();
+
+      function formatMonthDay(date){
+        return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+      }
+
+      const now = new Date();
+      const monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+      document.querySelectorAll('[data-deadline="month-end"]').forEach(function(el){
+        el.textContent = formatMonthDay(monthEnd);
+      });
+
+      if(!form) return;
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        status.textContent = '';
+        status.className = 'span-2 status';
+
+        if(!form.reportValidity()) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        try{
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          let data = {};
+          try { data = await response.json(); } catch(err){}
+
+          if(!response.ok || data.success === false){
+            throw new Error('Submission failed');
+          }
+
+          form.reset();
+          captureParams();
+          status.textContent = 'Thanks — your request was sent successfully. Harvest Renovation will follow up within 1 business day.';
+          status.className = 'span-2 status success';
+        }catch(error){
+          status.textContent = 'There was a problem sending the form. Please call (832) 944-0267 for the fastest response.';
+          status.className = 'span-2 status error';
+        }finally{
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Estimate Request';
+        }
+      });
+    })();
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
