@@ -469,8 +469,12 @@
         }
 
         function playInlineWithSound() {
+          var startFromBeginning = video.muted;
           video.loop = false;
           video.muted = false;
+          if (startFromBeginning) {
+            video.currentTime = 0;
+          }
           overlay.classList.add("is-hidden");
           setOverlayState("play");
 
