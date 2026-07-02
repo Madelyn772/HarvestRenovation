@@ -439,9 +439,13 @@
     }
 
     function playInlineWithSound() {
+      var startFromBeginning = previewPlayer.muted;
       previewPlayer.loop = false;
       previewPlayer.muted = false;
       previewPlayer.controls = false;
+      if (startFromBeginning) {
+        previewPlayer.currentTime = 0;
+      }
       playButton.classList.add('is-hidden');
       setOverlayState('play');
 

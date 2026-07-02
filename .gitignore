@@ -1,0 +1,5 @@
+# Local-only image backups (originals kept before optimization)
+assets/original/
+
+# macOS system files
+.DS_Store
